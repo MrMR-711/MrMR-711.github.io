@@ -159,7 +159,7 @@ header h1.title {
 
 @media (max-width: 767px) {
     .nav-item-search {
-        margin-right: 25px;
+        margin-right: 20px;
         width: 55px;
         height: 35px;
         border-radius: 8px;
@@ -199,11 +199,7 @@ header h1.title {
 @media (max-width: 767px) {
     #search-box {
         width: calc(100% - 60px);
-<<<<<<< HEAD
         top: 65px;
-=======
-        top: 55px;
->>>>>>> 2fb4414 (اولین کامیت)
         left: 20px;
         right: 0;
     }
@@ -308,7 +304,7 @@ header h1.title {
 
 @media (max-width: 767px) {
     .nav-item-language {
-        margin-right: 25px;
+        margin-right: 20px;
         width: 55px;
         height: 35px;
         border-radius: 8px;
@@ -348,11 +344,7 @@ header h1.title {
 @media (max-width: 767px) {
     #language-box {
         width: calc(100% - 150px);
-<<<<<<< HEAD
         top: 65px;
-=======
-        top: 55px;
->>>>>>> 2fb4414 (اولین کامیت)
         left: 18px;
         right: 0;
     }
@@ -443,7 +435,7 @@ header h1.title {
 
 @media (max-width: 767px) {
     .nav-item-about {
-        margin-right: 25px;
+        margin-right: 20px;
         width: 55px;
         height: 35px;
         border-radius: 8px;

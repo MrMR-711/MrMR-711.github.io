@@ -38,7 +38,7 @@
 
         header h2.mobile-title {
             margin: 0;
-            font-size: 2.0rem;
+            font-size: 1.9rem;
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
             margin: 20px;
             display: none;
@@ -178,7 +178,7 @@
 
         @media (max-width: 767px) {
             .nav-item-search {
-                margin-right: 25px;
+                margin-right: 20px;
                 width: 55px;
                 height: 35px;
                 border-radius: 8px;
@@ -218,11 +218,7 @@
         @media (max-width: 767px) {
             #search-box {
                 width: calc(100% - 60px);
-<<<<<<< HEAD
                 top: 65px;
-=======
-                top: 55px;
->>>>>>> 2fb4414 (اولین کامیت)
                 left: 20px;
                 right: 0;
             }
@@ -327,7 +323,7 @@
 
         @media (max-width: 767px) {
             .nav-item-language {
-                margin-right: 25px;
+                margin-right: 20px;
                 width: 55px;
                 height: 35px;
                 border-radius: 8px;
@@ -367,11 +363,7 @@
         @media (max-width: 767px) {
             #language-box {
                 width: calc(100% - 150px);
-<<<<<<< HEAD
                 top: 65px;
-=======
-                top: 55px;
->>>>>>> 2fb4414 (اولین کامیت)
                 left: 18px;
                 right: 0;
             }
@@ -462,7 +454,7 @@
 
         @media (max-width: 767px) {
             .nav-item-about {
-                margin-right: 25px;
+                margin-right: 20px;
                 width: 55px;
                 height: 35px;
                 border-radius: 8px;
