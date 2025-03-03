@@ -640,7 +640,7 @@
         .foot-item-email {
             width: 45px;
             height: 45px;
-            background: url(assets/footer/email-icon.jpg);
+            background: url(assets/footer/email-icon.svg);
             background-size: cover;
             display: inline-block;
             transition: transform 0.3s, background 0.3s, border-radius 0.3s;

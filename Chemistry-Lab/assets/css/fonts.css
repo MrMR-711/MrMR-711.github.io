@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'candarab';
+    src: url('../fonts/candarab.woff2') format('woff2'),
+    font-weight: bold;
+    font-style: normal;
+	font-display: fallback;
+}

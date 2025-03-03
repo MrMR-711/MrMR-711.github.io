@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<title>SaaSIntro | Bootstrap 5 SaaS Landing Page</title>
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+	<!-- Place favicon.ico in the root directory -->
+
+	<!-- ========================= CSS here ========================= -->
+	<link rel="stylesheet" href="assets/css/bootstrap-5.0.0-beta2.min.css" />
+	<link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />
+	<link rel="stylesheet" href="assets/css/tiny-slider.css" />
+	<link rel="stylesheet" href="assets/css/animate.css" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/fonts.css" />
+</head>
+
+<body>
+	<!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+	<!-- ========================= preloader start ========================= -->
+	<div class="preloader">
+		<div class="loader">
+			<div class="spinner">
+				<div class="spinner-container">
+					<div class="spinner-rotator">
+						<div class="spinner-left">
+							<div class="spinner-circle"></div>
+						</div>
+						<div class="spinner-right">
+							<div class="spinner-circle"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- preloader end -->
+
+
+	<!-- ========================= header start ========================= -->
+	<header class="header">
+		<div class="navbar-area">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-12">
+						<nav class="navbar navbar-expand-lg">
+							<a class="navbar-brand" href="index.html">
+								<img src="assets/images/logo/logo1.png" alt="Logo" />
+							</a>
+							<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+								data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+								aria-expanded="false" aria-label="Toggle navigation">
+								<span class="toggler-icon"></span>
+								<span class="toggler-icon"></span>
+								<span class="toggler-icon"></span>
+							</button>
+
+							<div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+								<div class="ms-auto">
+									<ul id="nav" class="navbar-nav ms-auto">
+										<li class="nav-item">
+											<a class="page-scroll active" href="#home">Home</a>
+										</li>
+										<li class="nav-item">
+											<a class="page-scroll" href="#about">About</a>
+										</li>
+										<li class="nav-item">
+											<a class="page-scroll" href="#features">Features</a>
+										</li>
+										<li class="nav-item">
+											<a class="" href="#0">Pricing</a>
+										</li>
+										<li class="nav-item">
+											<a class="" href="#0">Team</a>
+										</li>
+									</ul>
+								</div>
+
+							</div>
+							<!-- navbar collapse -->
+							<div class="header-btn">
+								<a href="https://github.com/MrMR-711/Web-Chemistry-Lab"
+									class="main-btn btn-hover">Project Github Page</a>
+							</div>
+						</nav>
+						<!-- navbar -->
+					</div>
+				</div>
+				<!-- row -->
+			</div>
+			<!-- container -->
+		</div>
+		<!-- navbar area -->
+	</header>
+	<!-- ========================= header end ========================= -->
+
+	<!-- ========================= hero-section start ========================= -->
+	<section id="home" class="hero-section">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-xl-6 col-lg-6 col-md-10">
+					<div class="hero-content">
+						<h1>Chemist Lab</h1>
+						<p>A comprehensive simulation lab for exploring chemical elements.</p>
+
+						<a id="button-download" href="./Chemist-Lab-V1.0.0.apk" class="main-btn btn-hover">Android
+							<img src="assets/images/android.png" class="btnandroidimg" alt="Logo" />
+						</a>
+						<script>
+							const buttondownload = document.getElementById('button-download');
+							const title = document.getElementById('title');
+
+							buttondownload.addEventListener('mouseenter', () => {
+								title.style.fontVariationSettings = "'DSTY' 1";
+							});
+
+							buttondownload.addEventListener('mouseleave', () => {
+								title.style.fontVariationSettings = "'DSTY' 2";
+							});
+						</script>
+						<a href="https://mrmr-711.github.io/Web-Chemistry-Lab" class="main-btn btn-hover">Web
+							<img src="assets/images/pwa.png" class="btnpwaimg" alt="Logo" />
+						</a>
+					</div>
+				</div>
+				<div class="col-xxl-6 col-xl-6 col-lg-6">
+					<div class="hero-image text-center text-lg-end">
+						<img src="assets/images/hero/hero-image.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ========================= hero-section end ========================= -->
+
+	<!-- ========================= about-section start ========================= -->
+	<section id="about" class="about-section">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 order-last order-lg-first">
+					<div class="about-image">
+						<img src="assets/images/about/about-image.svg" alt="">
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="about-content-wrapper">
+						<div class="section-title">
+							<h2 class="mb-20">Perfect Solution Thriving Online Business</h2>
+							<p class="mb-30">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dinonumy
+								eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+								vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+								takimata sanctus est Lorem.Lorem ipsum dolor sit amet.</p>
+							<a href="#0" class="main-btn btn-hover border-btn">Discover More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ========================= about-section end ========================= -->
+
+	<!-- ========================= feature-section start ========================= -->
+	<section id="features" class="feature-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5 col-md-10">
+					<div class="section-title mb-60">
+						<h2 class="mb-20">Modern design with Essential Features</h2>
+						<p>Lorem ipsum dolor amet, consetetur sadipscing elitr, sed diam nonumy eirmod te invidunt,
+							Lorem ipsum dolor sit amet.</p>
+					</div>
+				</div>
+
+				<div class="col-lg-7">
+					<div class="row">
+						<div class="col-lg-6 col-md-6">
+							<div class="single-feature">
+								<div class="feature-icon">
+									<i class="lni lni-display"></i>
+								</div>
+								<div class="feature-content">
+									<h4>SaaS Focused</h4>
+									<p>Lorem ipsum dolor amet, consetetur sadipscing elitr, diam nonu eirmod tem
+										invidunt.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6">
+							<div class="single-feature">
+								<div class="feature-icon">
+									<i class="lni lni-compass"></i>
+								</div>
+								<div class="feature-content">
+									<h4>Awesome Design</h4>
+									<p>Lorem ipsum dolor amet, consetetur sadipscing elitr, diam nonu eirmod tem
+										invidunt.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6">
+							<div class="single-feature">
+								<div class="feature-icon">
+									<i class="lni lni-grid-alt"></i>
+								</div>
+								<div class="feature-content">
+									<h4>Ready to Use</h4>
+									<p>Lorem ipsum dolor amet, consetetur sadipscing elitr, diam nonu eirmod tem
+										invidunt.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6">
+							<div class="single-feature">
+								<div class="feature-icon">
+									<i class="lni lni-layers"></i>
+								</div>
+								<div class="feature-content">
+									<h4>Essential Sections</h4>
+									<p>Lorem ipsum dolor amet, consetetur sadipscing elitr, diam nonu eirmod tem
+										invidunt.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ========================= feature-section end ========================= -->
+
+	<!-- ========================= cta-section start ========================= -->
+	<section id="cta" class="cta-section pt-130 pb-100">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6 col-md-10">
+					<div class="cta-content-wrapper">
+						<div class="section-title">
+							<h2 class="mb-20">Quick & Easy to <br class="d-none d-lg-block"> Use Bootstrap Template</h2>
+							<p class="mb-30">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dinonumy
+								eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+								vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergre.</p>
+							<a href="#0" class="main-btn btn-hover border-btn">Try it Free</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="cta-image text-lg-end">
+						<img src="assets/images/cta/cta-image.svg" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ========================= cta-section end ========================= -->
+
+	<!-- ========================= footer start ========================= -->
+	<footer class="footer pt-120">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-3 col-lg-4 col-md-6 col-sm-10">
+					<div class="footer-widget">
+						<div class="logo">
+							<a href="index.html"> <img src="assets/images/logo/logo1.png" alt="logo"> </a>
+						</div>
+						<p class="desc">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dinonumy eirmod
+							tempor invidunt.</p>
+						<ul class="social-links">
+							<li><a href="#0"><i class="lni lni-facebook"></i></a></li>
+							<li><a href="#0"><i class="lni lni-linkedin"></i></a></li>
+							<li><a href="#0"><i class="lni lni-instagram"></i></a></li>
+							<li><a href="#0"><i class="lni lni-twitter"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 offset-xl-1">
+					<div class="footer-widget">
+						<h3>About Us</h3>
+						<ul class="links">
+							<li><a href="#0">Home</a></li>
+							<li><a href="#0">About</a></li>
+							<li><a href="#0">Features</a></li>
+							<li><a href="#0">Pricing</a></li>
+							<li><a href="#0">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xl-3 col-lg-2 col-md-6 col-sm-6">
+					<div class="footer-widget">
+						<h3>Services</h3>
+						<ul class="links">
+							<li><a href="#0">SaaS Focused</a></li>
+							<li><a href="#0">Awesome Design</a></li>
+							<li><a href="#0">Ready to Use</a></li>
+							<li><a href="#0">Essential Selection</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xl-3 col-lg-4 col-md-6">
+					<div class="footer-widget">
+						<h3>Subscribe Newsletter</h3>
+						<form action="#">
+							<input type="email" placeholder="Email">
+							<button class="main-btn btn-hover">Subscribe</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- ========================= footer end ========================= -->
+
+
+	<!-- ========================= scroll-top ========================= -->
+	<a href="#" class="scroll-top btn-hover">
+		<i class="lni lni-chevron-up"></i>
+	</a>
+
+	<!-- ========================= JS here ========================= -->
+	<script src="assets/js/bootstrap-5.0.0-beta2.min.js"></script>
+	<script src="assets/js/tiny-slider.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="assets/js/polyfill.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>
