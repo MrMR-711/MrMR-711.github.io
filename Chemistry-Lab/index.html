@@ -1,338 +1,199 @@
 <!DOCTYPE html>
-<html class="no-js" lang="">
+<html lang="en">
 
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="x-ua-compatible" content="ie=edge" />
-	<title>SaaSIntro | Bootstrap 5 SaaS Landing Page</title>
-	<meta name="description" content="" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
-	<!-- Place favicon.ico in the root directory -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemist Lab - Official Project Page</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <meta name="description"
+        content="Chemist Lab: Open source software for chemical research. Enhance your analysis and discovery with tools available for free on GitHub.">
 
-	<!-- ========================= CSS here ========================= -->
-	<link rel="stylesheet" href="assets/css/bootstrap-5.0.0-beta2.min.css" />
-	<link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />
-	<link rel="stylesheet" href="assets/css/tiny-slider.css" />
-	<link rel="stylesheet" href="assets/css/animate.css" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="stylesheet" href="assets/css/fonts.css" />
+    <meta property="og:title" content="Chemist Lab - Open Source Chemical Research Software">
+    <meta property="og:description"
+        content="Open source software for chemical research. Enhance your analysis and discovery, free on GitHub.">
+    <meta property="og:image" content="images/og-image-chemist-lab-light.jpg">
+    <meta property="og:url" content="https://chemistlab.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@ChemistLabSoftware">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/Default-Style.css" />
 </head>
 
 <body>
-	<!--[if lte IE 9]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-        your experience and security.
-      </p>
-    <![endif]-->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <img src="css/logo.png" alt="logo">
+            </a>
+            <button class="mobile-menu" aria-label="Toggle Navigation">
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+            </button>
+            <div class="nav-links">
+                <a href="#features" class="translatable" data-key="features">Features</a>
+                <a href="#testimonials" class="translatable" data-key="testimonials">Testimonials</a>
+                <a href="#contact-footer" class="translatable" data-key="contact">Contact</a>
+                <div class="language-switcher">
+                    <button id="en-lang" class="lang-option active" data-lang="en">EN</button>
+                    <button id="fa-lang" class="lang-option" data-lang="fa">FA</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-decor decor-1"></div>
+            <div class="hero-decor decor-2"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title translatable" data-key="heroTitle">Chemistry Lab</h1>
+                    <p class="hero-subtitle translatable" data-key="heroSubtitle">
+                        A comprehensive simulation lab for exploring chemical elements, now freely available on GitHub.
+                    </p>
 
-	<!-- ========================= preloader start ========================= -->
-	<div class="preloader">
-		<div class="loader">
-			<div class="spinner">
-				<div class="spinner-container">
-					<div class="spinner-rotator">
-						<div class="spinner-left">
-							<div class="spinner-circle"></div>
-						</div>
-						<div class="spinner-right">
-							<div class="spinner-circle"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- preloader end -->
+                    <div class="cta-buttons">
+                        <a id="button-download" href="./Chemist-Lab-V1.0.0.apk"
+                            class="download-btn app-store translatable" target="_blank" rel="noopener noreferrer"
+                            data-key="androidVersion">
+                            <i class="fab fa-android"></i> Android Version
+                        </a>
+                        <a href="https://MrMR-711.github.io/Web-Chemistry-Lab"
+                            class="download-btn play-store translatable" data-key="webVersion">
+                            <i class="fas fa-globe"></i> Web(PWA) Version
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/hero-image.png" alt="Chemist Lab Software Interface" width="650">
+                </div>
+            </div>
+        </section>
 
+        <section class="features" id="features">
+            <div class="section-header">
+                <h2 class="section-title translatable" data-key="keyFeatures">Key Features</h2>
+                <p class="section-subtitle translatable" data-key="exploreCapabilities">Explore the capabilities that
+                    Chemist Lab offers for your research.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3 class="translatable" data-key="molecularModeling">Molecular Modeling</h3>
+                    <p class="translatable" data-key="molecularModelingDesc">Visualize and design molecules in 3D.
+                        Predict properties and conformations for advanced research.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="translatable" data-key="spectroscopyAnalysis">Spectroscopy Analysis</h3>
+                    <p class="translatable" data-key="spectroscopyAnalysisDesc">Analyze data from NMR, IR, MS, and
+                        UV-Vis with our comprehensive suite of tools.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-reaction-mechanism"></i>
+                    </div>
+                    <h3 class="translatable" data-key="reactionSimulation">Reaction Simulation</h3>
+                    <p class="translatable" data-key="reactionSimulationDesc">Simulate and understand reaction
+                        mechanisms to optimize your experimental processes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="translatable" data-key="compoundDatabase">Compound Database</h3>
+                    <p class="translatable" data-key="compoundDatabaseDesc">Access an integrated database of chemical
+                        compounds for efficient data management.</p>
+                </div>
+            </div>
+        </section>
 
-	<!-- ========================= header start ========================= -->
-	<header class="header">
-		<div class="navbar-area">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-12">
-						<nav class="navbar navbar-expand-lg">
-							<a class="navbar-brand" href="index.html">
-								<img src="assets/images/logo/logo1.png" alt="Logo" />
-							</a>
-							<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-								data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-								aria-expanded="false" aria-label="Toggle navigation">
-								<span class="toggler-icon"></span>
-								<span class="toggler-icon"></span>
-								<span class="toggler-icon"></span>
-							</button>
-
-							<div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-								<div class="ms-auto">
-									<ul id="nav" class="navbar-nav ms-auto">
-										<li class="nav-item">
-											<a class="page-scroll active" href="#home">Home</a>
-										</li>
-										<li class="nav-item">
-											<a class="page-scroll" href="#about">About</a>
-										</li>
-										<li class="nav-item">
-											<a class="page-scroll" href="#features">Features</a>
-										</li>
-										<li class="nav-item">
-											<a class="" href="#0">Pricing</a>
-										</li>
-										<li class="nav-item">
-											<a class="" href="#0">Team</a>
-										</li>
-									</ul>
-								</div>
-
-							</div>
-							<!-- navbar collapse -->
-							<div class="header-btn">
-								<a href="https://github.com/MrMR-711/Web-Chemistry-Lab"
-									class="main-btn btn-hover">Project Github Page</a>
-							</div>
-						</nav>
-						<!-- navbar -->
-					</div>
-				</div>
-				<!-- row -->
-			</div>
-			<!-- container -->
-		</div>
-		<!-- navbar area -->
-	</header>
-	<!-- ========================= header end ========================= -->
-
-	<!-- ========================= hero-section start ========================= -->
-	<section id="home" class="hero-section">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-xl-6 col-lg-6 col-md-10">
-					<div class="hero-content">
-						<h1>Chemist Lab</h1>
-						<p>A comprehensive simulation lab for exploring chemical elements.</p>
-
-						<a id="button-download" href="./Chemist-Lab-V1.0.0.apk" class="main-btn btn-hover">Android
-							<img src="assets/images/android.png" class="btnandroidimg" alt="Logo" />
-						</a>
-						<script>
-							const buttondownload = document.getElementById('button-download');
-							const title = document.getElementById('title');
-
-							buttondownload.addEventListener('mouseenter', () => {
-								title.style.fontVariationSettings = "'DSTY' 1";
-							});
-
-							buttondownload.addEventListener('mouseleave', () => {
-								title.style.fontVariationSettings = "'DSTY' 2";
-							});
-						</script>
-						<a href="https://mrmr-711.github.io/Web-Chemistry-Lab" class="main-btn btn-hover">Web
-							<img src="assets/images/pwa.png" class="btnpwaimg" alt="Logo" />
-						</a>
-					</div>
-				</div>
-				<div class="col-xxl-6 col-xl-6 col-lg-6">
-					<div class="hero-image text-center text-lg-end">
-						<img src="assets/images/hero/hero-image.png" alt="">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- ========================= hero-section end ========================= -->
-
-	<!-- ========================= about-section start ========================= -->
-	<section id="about" class="about-section">
-
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 order-last order-lg-first">
-					<div class="about-image">
-						<img src="assets/images/about/about-image.svg" alt="">
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="about-content-wrapper">
-						<div class="section-title">
-							<h2 class="mb-20">Perfect Solution Thriving Online Business</h2>
-							<p class="mb-30">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dinonumy
-								eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-								vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-								takimata sanctus est Lorem.Lorem ipsum dolor sit amet.</p>
-							<a href="#0" class="main-btn btn-hover border-btn">Discover More</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- ========================= about-section end ========================= -->
-
-	<!-- ========================= feature-section start ========================= -->
-	<section id="features" class="feature-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-5 col-md-10">
-					<div class="section-title mb-60">
-						<h2 class="mb-20">Modern design with Essential Features</h2>
-						<p>Lorem ipsum dolor amet, consetetur sadipscing elitr, sed diam nonumy eirmod te invidunt,
-							Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-
-				<div class="col-lg-7">
-					<div class="row">
-						<div class="col-lg-6 col-md-6">
-							<div class="single-feature">
-								<div class="feature-icon">
-									<i class="lni lni-display"></i>
-								</div>
-								<div class="feature-content">
-									<h4>SaaS Focused</h4>
-									<p>Lorem ipsum dolor amet, consetetur sadipscing elitr, diam nonu eirmod tem
-										invidunt.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-6">
-							<div class="single-feature">
-								<div class="feature-icon">
-									<i class="lni lni-compass"></i>
-								</div>
-								<div class="feature-content">
-									<h4>Awesome Design</h4>
-									<p>Lorem ipsum dolor amet, consetetur sadipscing elitr, diam nonu eirmod tem
-										invidunt.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-6">
-							<div class="single-feature">
-								<div class="feature-icon">
-									<i class="lni lni-grid-alt"></i>
-								</div>
-								<div class="feature-content">
-									<h4>Ready to Use</h4>
-									<p>Lorem ipsum dolor amet, consetetur sadipscing elitr, diam nonu eirmod tem
-										invidunt.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-6">
-							<div class="single-feature">
-								<div class="feature-icon">
-									<i class="lni lni-layers"></i>
-								</div>
-								<div class="feature-content">
-									<h4>Essential Sections</h4>
-									<p>Lorem ipsum dolor amet, consetetur sadipscing elitr, diam nonu eirmod tem
-										invidunt.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- ========================= feature-section end ========================= -->
-
-	<!-- ========================= cta-section start ========================= -->
-	<section id="cta" class="cta-section pt-130 pb-100">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6 col-md-10">
-					<div class="cta-content-wrapper">
-						<div class="section-title">
-							<h2 class="mb-20">Quick & Easy to <br class="d-none d-lg-block"> Use Bootstrap Template</h2>
-							<p class="mb-30">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dinonumy
-								eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-								vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergre.</p>
-							<a href="#0" class="main-btn btn-hover border-btn">Try it Free</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="cta-image text-lg-end">
-						<img src="assets/images/cta/cta-image.svg" alt="">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- ========================= cta-section end ========================= -->
-
-	<!-- ========================= footer start ========================= -->
-	<footer class="footer pt-120">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-3 col-lg-4 col-md-6 col-sm-10">
-					<div class="footer-widget">
-						<div class="logo">
-							<a href="index.html"> <img src="assets/images/logo/logo1.png" alt="logo"> </a>
-						</div>
-						<p class="desc">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dinonumy eirmod
-							tempor invidunt.</p>
-						<ul class="social-links">
-							<li><a href="#0"><i class="lni lni-facebook"></i></a></li>
-							<li><a href="#0"><i class="lni lni-linkedin"></i></a></li>
-							<li><a href="#0"><i class="lni lni-instagram"></i></a></li>
-							<li><a href="#0"><i class="lni lni-twitter"></i></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 offset-xl-1">
-					<div class="footer-widget">
-						<h3>About Us</h3>
-						<ul class="links">
-							<li><a href="#0">Home</a></li>
-							<li><a href="#0">About</a></li>
-							<li><a href="#0">Features</a></li>
-							<li><a href="#0">Pricing</a></li>
-							<li><a href="#0">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-xl-3 col-lg-2 col-md-6 col-sm-6">
-					<div class="footer-widget">
-						<h3>Services</h3>
-						<ul class="links">
-							<li><a href="#0">SaaS Focused</a></li>
-							<li><a href="#0">Awesome Design</a></li>
-							<li><a href="#0">Ready to Use</a></li>
-							<li><a href="#0">Essential Selection</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-xl-3 col-lg-4 col-md-6">
-					<div class="footer-widget">
-						<h3>Subscribe Newsletter</h3>
-						<form action="#">
-							<input type="email" placeholder="Email">
-							<button class="main-btn btn-hover">Subscribe</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- ========================= footer end ========================= -->
+        <section class="testimonials" id="testimonials">
+            <div class="section-header">
+                <h2 class="section-title translatable" data-key="testimonialsSection">Testimonials</h2>
+                <p class="section-subtitle translatable" data-key="whatResearchersSay">See what researchers are saying
+                    about Chemist Lab.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text translatable" data-key="testimonial1">"Chemist Lab has become an
+                        indispensable tool in our lab. The molecular
+                        modeling features are top-notch and incredibly user-friendly."</p>
+                    <div class="testimonial-author">
+                        <img src="images/chemist-testimonial-1-light.jpg" alt="Dr. Anya Sharma" class="author-image">
+                        <div>
+                            <h4 class="translatable" data-key="anyaSharmaName">Dr. Anya Sharma</h4>
+                            <p class="translatable" data-key="anyaSharmaTitle">Head of Computational Chemistry,
+                                PharmaCorp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text translatable" data-key="testimonial2">"The spectroscopy module is
+                        fantastic! It has significantly sped up our
+                        data analysis, allowing us to focus more on discovery."</p>
+                    <div class="testimonial-author">
+                        <img src="images/chemist-testimonial-2-light.jpg" alt="Professor Ben Carter"
+                            class="author-image">
+                        <div>
+                            <h4 class="translatable" data-key="benCarterName">Professor Ben Carter</h4>
+                            <p class="translatable" data-key="benCarterTitle">Professor of Analytical Chemistry,
+                                University of Science</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
-	<!-- ========================= scroll-top ========================= -->
-	<a href="#" class="scroll-top btn-hover">
-		<i class="lni lni-chevron-up"></i>
-	</a>
+    </main>
 
-	<!-- ========================= JS here ========================= -->
-	<script src="assets/js/bootstrap-5.0.0-beta2.min.js"></script>
-	<script src="assets/js/tiny-slider.js"></script>
-	<script src="assets/js/wow.min.js"></script>
-	<script src="assets/js/polyfill.js"></script>
-	<script src="assets/js/main.js"></script>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="#" class="logo" style="display: block; margin-bottom: 1.2rem; color: var(--text-dark);">
+                    <i class="fas fa-vial"></i> Chemist Lab
+                </a>
+                <p class="translatable" data-key="footerDesc" style="opacity: 0.7; font-size: 0.9rem;">Open source
+                    software for chemical research and discovery.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4 class="translatable" data-key="explore">Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="#about" class="translatable" data-key="about">About</a></li>
+                    <li><a href="#careers" class="translatable" data-key="careers">Careers</a></li>
+                    <li><a href="#blog" class="translatable" data-key="blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section" id="contact-footer">
+                <h4 class="translatable" data-key="contactSection">Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@chemistlab.com" class="translatable" data-key="emailUs"><i
+                                class="fas fa-envelope"></i> Email Us</a></li>
+                    <li><a href="tel:+15551234567" class="translatable" data-key="callUs"><i class="fas fa-phone"></i>
+                            Call Us</a></li>
+                    <li><a href="#address" class="translatable" data-key="address"><i class="fas fa-map-marker-alt"></i>
+                            Science City, Research Lane 456</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        <script src="index.js" defer></script>
+    </script>
 </body>
 
 </html>
