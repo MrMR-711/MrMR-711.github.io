@@ -302,7 +302,7 @@ a:focus,
 }
 
 #contributors {
-    background-color: var(--light-background); /* Use light background variable */
+    background-color: var(--light-background);
     padding: 40px 20px;
     text-align: center;
 }
@@ -313,16 +313,15 @@ a:focus,
 
 #contributors .section-title {
     font-size: 2rem;
-    color: var(--text-dark); /* Use dark text variable */
-    font-weight: bold;
-    font-family: 'Space Grotesk', monospace; /* Use heading font */
+    color: var(--text-dark);
+    font-family: 'Space Grotesk', monospace;
 }
 
 #contributors .section-subtitle {
     font-size: 1.2rem;
-    color: var(--text-light); /* Use light text variable */
+    color: var(--text-light);
     margin-top: 10px;
-    font-family: 'Fira Code', monospace; /* Use body font */
+    font-family: 'Fira Code', monospace;
 }
 
 .contributor-list {
@@ -334,15 +333,15 @@ a:focus,
 }
 
 .contributor-card {
-    background-color: var(--white-color); /* Use white variable */
-    border: 1px solid var(--border-color); /* Use border color variable */
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 80px;
+    padding: 40px;
     width: 470px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    font-family: 'Fira Code', monospace; /* Use body font to match */
-    text-align: left;
+    font-family: 'Fira Code', monospace;
+    text-align: center;
 }
 
 .contributor-links {
@@ -350,7 +349,9 @@ a:focus,
     display: flex;
     gap: 80px;
     padding-left: 0;
-    margin-top: 20px; /* فاصله از متن اصلی */
+    margin-top: 70px;
+    display: inline-flex;
+    align-items: center;
 }
 
 .contributor-links li {
@@ -363,7 +364,7 @@ a:focus,
     opacity: 0.7;
     padding: 0.5rem 0;
     display: block;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .contributor-links a:hover,
@@ -372,16 +373,16 @@ a:focus,
 }
 
 .contributor-card h4 {
-    font-size: 1.5rem;
-    color: var(--text-dark); /* Use dark text variable */
+    font-size: 1.9rem;
+    color: var(--text-dark);
     font-weight: bold;
-    font-family: 'Space Grotesk', monospace; /* Use heading font */
+    font-family: 'Space Grotesk', monospace;
 }
 
 .contributor-card p {
-    font-size: 1rem;
-    color: var(--text-light); /* Use light text variable */
-    font-family: 'Fira Code', monospace; /* Use body font */
+    font-size: 1.3rem;
+    color: var(--text-light);
+    font-family: 'Fira Code', monospace;
 }
 
 .footer {
@@ -562,7 +563,7 @@ a:focus,
     }
 
     #contributors {
-        background-color: var(--light-background); /* Use light background variable */
+        background-color: var(--light-background);
         padding: 40px 20px;
         text-align: center;
     }
@@ -573,16 +574,16 @@ a:focus,
     
     #contributors .section-title {
         font-size: 2rem;
-        color: var(--text-dark); /* Use dark text variable */
+        color: var(--text-dark);
         font-weight: bold;
-        font-family: 'Space Grotesk', monospace; /* Use heading font */
+        font-family: 'Space Grotesk', monospace;
     }
     
     #contributors .section-subtitle {
         font-size: 1.2rem;
-        color: var(--text-light); /* Use light text variable */
+        color: var(--text-light);
         margin-top: 10px;
-        font-family: 'Fira Code', monospace; /* Use body font */
+        font-family: 'Fira Code', monospace;
     }
     
     .contributor-list {
@@ -594,7 +595,7 @@ a:focus,
     }
     
     .contributor-card {
-        padding: 50px;
+        padding: 40px;
         width: 350px;
     }
     
@@ -603,10 +604,7 @@ a:focus,
         display: flex;
         gap: 80px;
         padding-left: 0;
-        margin-top: 20px; /* فاصله از متن اصلی */
-    }
-    
-    .contributor-links li {
+        margin-top: 50px;
         display: inline-flex;
         align-items: center;
     }
@@ -621,22 +619,18 @@ a:focus,
     
     .contributor-card h4 {
         font-size: 1.5rem;
-        color: var(--text-dark); /* Use dark text variable */
+        color: var(--text-dark);
         font-weight: bold;
-        font-family: 'Space Grotesk', monospace; /* Use heading font */
+        font-family: 'Space Grotesk', monospace;
     }
     
     .contributor-card p {
         font-size: 1rem;
-        color: var(--text-light); /* Use light text variable */
-        font-family: 'Fira Code', monospace; /* Use body font */
+        color: var(--text-light);
+        font-family: 'Fira Code', monospace;
     }
 }
 
-
-/* ------------------------------------------ */
-/* |           9. Animations                 | */
-/* ------------------------------------------ */
 
 @keyframes float {
 
@@ -647,7 +641,6 @@ a:focus,
 
     50% {
         transform: translateY(-12px);
-        /* Increased float height */
     }
 }
 
@@ -656,7 +649,6 @@ a:focus,
     from {
         opacity: 0;
         transform: translateY(25px);
-        /* Increased slide distance */
     }
 
     to {
@@ -669,7 +661,6 @@ a:focus,
     from {
         opacity: 0;
         transform: translateY(30px);
-        /* Increased slide distance */
     }
 
     to {
