@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chemist Lab - Official Project Page</title>
-    <link rel="icon" href="icon.png" type="image/png">
+    <title>Chemist Lab - Open Source Chemical Research Software</title>
     <meta name="description"
         content="Chemist Lab: Open source software for chemical research. Enhance your analysis and discovery with tools available for free on GitHub.">
 
@@ -17,11 +16,12 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:creator" content="@ChemistLabSoftware">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link type="text/css" rel="stylesheet" href="css/fonts.css">
+    <link type="text/css" rel="stylesheet" href="css/Default-Style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/Default-Style.css" />
+
 </head>
 
 <body>
@@ -30,19 +30,15 @@
             <a href="https://MrMR-711.github.io/Chemistry-Lab" class="logo">
                 <img src="css/logo.png" alt="logo">
             </a>
-            <button class="mobile-menu" aria-label="Toggle Navigation">
+            <button class="mobile-menu" aria-label="Toggle Navigation" id="mobile-menu-btn">
                 <div class="icon-bar"></div>
                 <div class="icon-bar"></div>
                 <div class="icon-bar"></div>
             </button>
-            <div class="nav-links">
-                <a href="#features" class="translatable" data-key="features">Features</a>
-                <a href="#testimonials" class="translatable" data-key="testimonials">Testimonials</a>
-                <a href="#contact-footer" class="translatable" data-key="contact">Contact</a>
-                <div class="language-switcher">
-                    <button id="en-lang" class="lang-option active" data-lang="en">EN</button>
-                    <button id="fa-lang" class="lang-option" data-lang="fa">FA</button>
-                </div>
+            <div class="nav-links" id="nav-links-menu">
+                <a href="#features">Features</a>
+                <a href="#contributors">Developers</a>
+                <a href="#contact-footer">Contact</a>
             </div>
         </nav>
     </header>
@@ -52,20 +48,18 @@
             <div class="hero-decor decor-2"></div>
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title translatable" data-key="heroTitle">Chemistry Lab</h1>
-                    <p class="hero-subtitle translatable" data-key="heroSubtitle">
-                        A comprehensive simulation lab for exploring chemical elements, now freely available on GitHub.
+                    <h1 class="hero-title">Chemistry Lab</h1>
+                    <p class="hero-subtitle">
+                        A comprehensive simulation lab for exploring chemical elements
                     </p>
 
                     <div class="cta-buttons">
-                        <a id="button-download" href="./Chemist-Lab-V1.0.0.apk"
-                            class="download-btn app-store translatable" target="_blank" rel="noopener noreferrer"
-                            data-key="androidVersion">
+                        <a id="button-download" href="./Chemist-Lab-V1.0.0.apk" class="download-btn app-store" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fab fa-android"></i> Android Version
                         </a>
-                        <a href="https://MrMR-711.github.io/Web-Chemistry-Lab"
-                            class="download-btn play-store translatable" data-key="webVersion">
-                            <i class="fas fa-globe"></i> Web(PWA) Version
+                        <a href="https://MrMR-711.github.io/Web-Chemistry-Lab" class="web-btn play-store">
+                            <i class="fas fa-globe"></i> Web Version
                         </a>
                     </div>
                 </div>
@@ -77,83 +71,59 @@
 
         <section class="features" id="features">
             <div class="section-header">
-                <h2 class="section-title translatable" data-key="keyFeatures">Key Features</h2>
-                <p class="section-subtitle translatable" data-key="exploreCapabilities">Explore the capabilities that
-                    Chemist Lab offers for your research.</p>
+                <h2 class="section-title">Key Features</h2>
+                <p class="section-subtitle">Explore the capabilities that Chemist Lab offers for your.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-atom"></i>
                     </div>
-                    <h3 class="translatable" data-key="molecularModeling">Molecular Modeling</h3>
-                    <p class="translatable" data-key="molecularModelingDesc">Visualize and design molecules in 3D.
-                        Predict properties and conformations for advanced research.
+                    <h3>Atomic Model</h3>
+                    <p>Visualizes and designs atoms. Showing complete properties like conditions, standard atomic mass, etc. of the atom.
                     </p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-flask"></i>
                     </div>
-                    <h3 class="translatable" data-key="spectroscopyAnalysis">Spectroscopy Analysis</h3>
-                    <p class="translatable" data-key="spectroscopyAnalysisDesc">Analyze data from NMR, IR, MS, and
-                        UV-Vis with our comprehensive suite of tools.</p>
+                    <h3>Modify Atoms</h3>
+                    <p>Feature to manually change neutrons, protons and electrons. Discover isotopes of atoms by changing the number of neutrons!</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-reaction-mechanism"></i>
+                        <i class="fas fa-search"></i>
                     </div>
-                    <h3 class="translatable" data-key="reactionSimulation">Reaction Simulation</h3>
-                    <p class="translatable" data-key="reactionSimulationDesc">Simulate and understand reaction
-                        mechanisms to optimize your experimental processes.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="translatable" data-key="compoundDatabase">Compound Database</h3>
-                    <p class="translatable" data-key="compoundDatabaseDesc">Access an integrated database of chemical
-                        compounds for efficient data management.</p>
+                    <h3>Search Atoms</h3>
+                    <p>Search for atoms by their chemical symbol, name, or atomic number!</p>
                 </div>
             </div>
         </section>
 
-        <section class="testimonials" id="testimonials">
+        <section class="contributors" id="contributors">
             <div class="section-header">
-                <h2 class="section-title translatable" data-key="testimonialsSection">Testimonials</h2>
-                <p class="section-subtitle translatable" data-key="whatResearchersSay">See what researchers are saying
-                    about Chemist Lab.</p>
+                <h2 class="section-title">Developers of this App</h2>
+                <p class="section-subtitle">Developed with contributions from:</p>
             </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text translatable" data-key="testimonial1">"Chemist Lab has become an
-                        indispensable tool in our lab. The molecular
-                        modeling features are top-notch and incredibly user-friendly."</p>
-                    <div class="testimonial-author">
-                        <img src="images/chemist-testimonial-1-light.jpg" alt="Dr. Anya Sharma" class="author-image">
-                        <div>
-                            <h4 class="translatable" data-key="anyaSharmaName">Dr. Anya Sharma</h4>
-                            <p class="translatable" data-key="anyaSharmaTitle">Head of Computational Chemistry,
-                                PharmaCorp</p>
-                        </div>
-                    </div>
+            <div class="contributor-list">
+                <div class="contributor-card">
+                    <h4>Mohammad Rashnou</h4>
+                    <p>Main Developer</p>
+                    <ul class="contributor-links">
+                        <li><a href="mailto: mohammad117811@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a></li>
+                        <li><a href="https://t.me/MrMR_711" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram</a></li>
+                    </ul>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text translatable" data-key="testimonial2">"The spectroscopy module is
-                        fantastic! It has significantly sped up our
-                        data analysis, allowing us to focus more on discovery."</p>
-                    <div class="testimonial-author">
-                        <img src="images/chemist-testimonial-2-light.jpg" alt="Professor Ben Carter"
-                            class="author-image">
-                        <div>
-                            <h4 class="translatable" data-key="benCarterName">Professor Ben Carter</h4>
-                            <p class="translatable" data-key="benCarterTitle">Professor of Analytical Chemistry,
-                                University of Science</p>
-                        </div>
-                    </div>
+                <div class="contributor-card">
+                        <h4>Hamidreza Sepahvand</h4>
+                        <p>Co-Developer & Designer</p>
+                        <ul class="contributor-links">
+                            <li><a href="mailto: hamidreza.sepahvand@example.com"><i class="fa-solid fa-envelope"></i> Email</a></li>
+                            <li><a href="https://t.me/Sep2x" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram</a></li>
+                        </ul>
                 </div>
             </div>
-        </section>
+        </section>              
 
 
     </main>
@@ -162,30 +132,16 @@
         <div class="footer-content">
             <div class="footer-section">
                 <a href="#" class="logo" style="display: block; margin-bottom: 1.2rem; color: var(--text-dark);">
-                    <i class="fas fa-vial"></i> Chemist Lab
+                    <img src="css/logo.png" alt="logo">
                 </a>
-                <p class="translatable" data-key="footerDesc" style="opacity: 0.7; font-size: 0.9rem;">Open source
-                    software for chemical research and discovery.
+                <p style="opacity: 0.7; font-size: 0.9rem;">Open source software for chemical research and discovery.
                 </p>
             </div>
             <div class="footer-section">
-                <h4 class="translatable" data-key="explore">Explore</h4>
+                <h4>Explore</h4>
                 <ul class="footer-links">
-                    <li><a href="#about" class="translatable" data-key="about">About</a></li>
-                    <li><a href="#careers" class="translatable" data-key="careers">Careers</a></li>
-                    <li><a href="#blog" class="translatable" data-key="blog">Blog</a></li>
-                </ul>
-            </div>
-            <div class="footer-section" id="contact-footer">
-                <h4 class="translatable" data-key="contactSection">Contact</h4>
-                <ul class="footer-links">
-                    <li><a href="mailto:info@chemistlab.com" class="translatable" data-key="emailUs"><i
-                                class="fas fa-envelope"></i> Email Us</a></li>
-                    <li><a href="tel:+15551234567" class="translatable" data-key="callUs"><i class="fas fa-phone"></i>
-                            Call Us</a></li>
-                    <li><a href="#address" class="translatable" data-key="address"><i class="fas fa-map-marker-alt"></i>
-                            Science City, Research Lane 456</a>
-                    </li>
+                    <li><a href="https://github.com/MrMR-711/Web-Chemistry-Lab"><i class="fa-brands fa-github"></i> Github Project Page</a></li>
+                    <li><a href="https://t.me/ChemistLabBot"><i class="fa-solid fa-robot"></i> Telegram Mini-App</a></li>
                 </ul>
             </div>
         </div>
