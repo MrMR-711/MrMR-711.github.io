@@ -297,12 +297,8 @@ a:focus,
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
-.feature-icon {
-    font-size: 2rem;
+.feature-card i {
     color: var(--primary-color);
-    margin-bottom: 1rem;
-    opacity: 0.8;
-    animation: fadeIn 0.9s 0.6s ease-out forwards;
 }
 
 #contributors {
