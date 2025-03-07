@@ -672,7 +672,7 @@ a:focus,
     .hero {
         padding: 8rem 1.5rem 4rem;
         min-height: 80vh;
-        padding-top: calc(7rem + 60px);
+        padding-top: calc(8rem + 60px);
     }
 
     .hero-content {
@@ -684,7 +684,6 @@ a:focus,
 
     .hero-text {
         text-align: center;
-        /* --> تراز متن وسط برای موبایل */
     }
 
     .hero-title {
@@ -701,7 +700,6 @@ a:focus,
         align-items: center;
         gap: 1rem;
         justify-content: center;
-        /* --> وسط چین کردن دکمه ها برای موبایل */
         margin-top: 1.5rem;
     }
 
