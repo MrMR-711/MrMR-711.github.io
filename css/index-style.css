@@ -716,6 +716,7 @@ footer a {
     font-weight: bold;
     transition: color 0.3s;
     text-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+	text-decoration: underline;
 }
 
 footer p {

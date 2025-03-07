@@ -509,6 +509,7 @@ p.told {
     color: #027ddb;
     text-decoration: none;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+	text-decoration: underline;
 }
 
 .link:hover {

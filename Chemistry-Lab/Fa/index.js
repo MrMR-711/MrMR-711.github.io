@@ -103,15 +103,15 @@ document.getElementById('language-selector').addEventListener('change', function
     var selectedValue = this.value;
     localStorage.setItem('language', selectedValue);
     if (selectedValue === 'en') {
-        window.location.href = './';
+        window.location.href = '../';
     } else if (selectedValue === 'fa') {
-        window.location.href = './Fa';
+        window.location.href = './';
     }
 });
 
 document.addEventListener('DOMContentLoaded', function () {
     var savedLang = localStorage.getItem('language-selector');
-    if (savedLang === 'fa') {
-        window.location.href = './Fa';
+    if (savedLang === 'en') {
+        window.location.href = '../';
     }
 });
