@@ -110,7 +110,7 @@ document.getElementById('language-selector').addEventListener('change', function
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    var savedLang = localStorage.getItem('language-selector');
+    var savedLang = localStorage.getItem('language');
     if (savedLang === 'fa') {
         window.location.href = './Fa';
     }
