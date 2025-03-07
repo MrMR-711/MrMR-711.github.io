@@ -1,4 +1,3 @@
-/* فونت های فارسی جایگزین شده و تغییرات اعمال شده */
 * {
     margin: 0;
     padding: 0;
@@ -211,7 +210,6 @@ a:focus,
     position: relative;
     padding: 0.5rem 0;
     display: inline-block;
-    letter-spacing: 0.05em;
     color: var(--text-dark);
     transition: color 0.3s ease;
 }
@@ -758,7 +756,7 @@ a:focus,
     }
 
     #backToTop {
-        bottom: 90px;
+        bottom: 20px;
         right: 20px;
     }
 }
