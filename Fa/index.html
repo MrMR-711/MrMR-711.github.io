@@ -223,13 +223,13 @@
             }
         }
 
+        // --- بخش مدیریت نمایش/مخفی کردن باکس زبان ---
         const languageButton = document.getElementById("language-button");
         const languageBox = document.getElementById("language-box");
-
         let islanguageBoxVisible = false;
 
         languageButton.addEventListener("click", (event) => {
-            event.preventDefault(); // جلوگیری از رفتار پیش‌فرض کلیک
+            event.preventDefault();
 
             if (islanguageBoxVisible) {
                 languageBox.classList.remove("visible");
@@ -248,6 +248,40 @@
                 islanguageBoxVisible = false;
             }
         });
+
+        // --- بخش مدیریت انتخاب و ذخیره زبان ---
+        document.querySelectorAll('#language-box a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const lang = this.classList.contains('language-persian') ? 'fa' : 'en';
+                localStorage.setItem('language', lang);
+
+                if (lang === 'en') {
+                    window.location.href = './';
+                } else {
+                    window.location.href = './';
+                }
+            });
+        });
+
+        // --- بخش جدید: بررسی زبان ذخیره شده هنگام لود صفحه ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedLang = localStorage.getItem('language');
+
+            // اگر زبان ذخیره شده وجود داشت و با زبان فعلی همخوانی نداشت
+            if (storedLang && storedLang !== getCurrentLanguage()) {
+                if (storedLang === 'en') {
+                    window.location.href = '../';
+                } else {
+                    window.location.href = './';
+                }
+            }
+        });
+
+        // تابع کمکی برای تشخیص زبان فعلی صفحه
+        function getCurrentLanguage() {
+            return window.location.href.includes('../') ? 'fa' : 'en';
+        }
 
         document.querySelectorAll(".nav-item-home, .nav-item-language,.nav-item-search, .nav-item-about, .foot-item-telegram, .foot-item-email").forEach(icon => {
             icon.addEventListener("click", event => {
