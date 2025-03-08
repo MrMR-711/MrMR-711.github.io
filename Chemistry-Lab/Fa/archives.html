@@ -194,6 +194,7 @@
             background-repeat: no-repeat;
             background-position: calc(100% - 20px) center;
             background-size: 10px;
+            margin-right: -5rem;
         }
 
         .language-selector select:focus {
@@ -220,7 +221,10 @@
             display: flex;
             gap: 2.5rem;
             align-items: center;
-            margin-left: 18rem;
+        }
+
+        .nav-links> :last-child {
+            margin-left: 1rem;
         }
 
         .nav-links a {
@@ -521,12 +525,17 @@
 
         /* Reusing media queries and animations from the original CSS - No changes needed for responsiveness */
         @media (max-width: 1200px) {
+            .language-selector select {
+                margin-right: 0rem;
+            }
+
+
             .nav-container {
                 padding: 1rem 1.5rem;
             }
 
-            .nav-links {
-                margin-left: 9rem;
+            .nav-links> :last-child {
+                margin-left: 1rem;
             }
 
             .logo {
@@ -534,19 +543,26 @@
             }
 
             .nav-links a {
-                font-size: 1.3rem;
+                font-size: 1rem;
             }
         }
 
 
         @media (max-width: 992px) {
+            .language-selector select {
+                margin-right: 0rem;
+            }
+
             .nav-container {
                 padding: 0.8rem 1rem;
             }
 
             .nav-links {
-                margin-left: 2rem;
                 gap: 2rem;
+            }
+
+            .nav-links> :last-child {
+                margin-left: 1rem;
             }
 
             .logo {
@@ -554,7 +570,7 @@
             }
 
             .nav-links a {
-                font-size: 1.2rem;
+                font-size: 0.9rem;
             }
         }
 

@@ -172,6 +172,7 @@ a:focus,
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
     background-size: 10px;
+	margin-right: -5rem;
 }
 
 .language-selector select:focus {
@@ -198,7 +199,10 @@ a:focus,
     display: flex;
     gap: 2.5rem;
     align-items: center;
-    margin-left: 24rem;
+}
+
+.nav-links > :last-child {
+    margin-left: 1rem;
 }
 
 .nav-links a {
@@ -574,12 +578,16 @@ a:focus,
 }
 
 @media (max-width: 1200px) {
+	
+	.language-selector select {
+	    margin-right: 0rem;
+    }
     .nav-container {
         padding: 1rem 1.5rem;
     }
 
-    .nav-links {
-        margin-left: 15rem;
+    .nav-links > :last-child {
+        margin-left: 1rem;
     }
 
     .logo {
@@ -587,19 +595,25 @@ a:focus,
     }
 
     .nav-links a {
-        font-size: 1.3rem;
+        font-size: 0.9rem;
     }
 }
 
 
 @media (max-width: 992px) {
+	.language-selector select {
+	    margin-right: 0rem;
+    }
     .nav-container {
         padding: 0.8rem 1rem;
     }
 
     .nav-links {
-        margin-left: 8rem;
         gap: 2rem;
+    }
+
+    .nav-links > :last-child {
+        margin-left: 1rem;
     }
 
     .logo {
@@ -607,7 +621,7 @@ a:focus,
     }
 
     .nav-links a {
-        font-size: 1.2rem;
+        font-size: 0.8rem;
     }
 }
 
