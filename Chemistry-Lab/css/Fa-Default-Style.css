@@ -7,7 +7,6 @@
 html,
 body {
     font-family: Vazirmatn, sans-serif;
-    /* جایگزینی با فونت فارسی وزیرمتن */
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
     line-height: 1.6;
@@ -77,7 +76,6 @@ a:focus,
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
     direction: ltr;
-    /* چپ چین کردن نوبار */
 }
 
 .nav-container {
@@ -226,7 +224,6 @@ a:focus,
     height: 2px;
     bottom: -2px;
     left: 0;
-    /* موقعیت اصلی در حالت چپ‌چین */
     background: var(--primary-color);
     transition: width 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
@@ -247,7 +244,6 @@ a:focus,
     perspective: 1000px;
     padding-top: calc(10rem + 60px);
     direction: ltr;
-    /* چپ چین کردن بخش هیرو */
 }
 
 .hero-content {
@@ -456,10 +452,6 @@ a:focus,
     color: var(--primary-color);
 }
 
-.contributor-links a.noactive {
-    color: var(--text-light);
-}
-
 @media (min-width: 769px) {
 
     .contributor-links a:hover {
@@ -478,7 +470,6 @@ a:focus,
     font-size: 1.3rem;
     color: var(--text-light);
     font-family: Vazirmatn, sans-serif;
-    /* جایگزینی با فونت فارسی وزیرمتن */
 }
 
 .footer {
@@ -521,15 +512,10 @@ a:focus,
     display: inline;
     font-size: 0.9rem;
     font-family: Vazirmatn, sans-serif;
-    /* جایگزینی با فونت فارسی وزیرمتن */
 }
 
 .footer-links a.active {
     color: var(--primary-color);
-}
-
-.footer-links a.noactive {
-    color: var(--text-light);
 }
 
 @media (min-width: 769px) {
@@ -555,7 +541,6 @@ a:focus,
     color: var(--text-light);
     opacity: 0.6;
     font-family: Vazirmatn, sans-serif;
-    /* جایگزینی با فونت فارسی وزیرمتن */
 }
 
 .copyright .p-small a {
@@ -567,7 +552,6 @@ a:focus,
     position: fixed;
     bottom: 20px;
     right: 20px;
-    /* --> انتقال به راست */
     background-color: var(--accent-color);
     color: white;
     border: none;
@@ -587,6 +571,44 @@ a:focus,
 #backToTop.no-hover:hover {
     background-color: #285ae6;
     transform: scale(1.1);
+}
+
+@media (max-width: 1200px) {
+    .nav-container {
+        padding: 1rem 1.5rem;
+    }
+
+    .nav-links {
+        margin-left: 15rem;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
+
+    .nav-links a {
+        font-size: 1.3rem;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .nav-container {
+        padding: 0.8rem 1rem;
+    }
+
+    .nav-links {
+        margin-left: 8rem;
+        gap: 2rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -866,9 +888,10 @@ a:focus,
     transition: var(--transition);
     gap: 0.8rem;
     background-color: var(--white-color);
-    color: var(--text-dark);
+    color: var(--primary-color);
     box-shadow: 0 0 8px rgba(168, 170, 172, 0.5);
     font-family: Vazirmatn, sans-serif;
+    font-size: large;
 }
 
 .web-btn {
@@ -876,16 +899,17 @@ a:focus,
     align-items: center;
     justify-content: center;
     padding: 0.8rem 1rem;
-    width: 195px;
+    width: 210px;
     font-weight: 600;
     text-decoration: none;
     border-radius: 0.3rem;
     transition: var(--transition);
     gap: 0.8rem;
     background-color: var(--white-color);
-    color: var(--text-dark);
+    color: var(--primary-color);
     box-shadow: 0 0 8px rgba(168, 170, 172, 0.5);
     font-family: Vazirmatn, sans-serif;
+    font-size: large;
 }
 
 .download-btn.active,
@@ -894,14 +918,6 @@ a:focus,
     background-color: var(--accent-color);
     box-shadow: 0 0 12px rgba(0, 77, 230, 0.8);
     color: var(--white-color);
-}
-
-.download-btn.noactive,
-.web-btn.noactive {
-    transform: scale(1);
-    background-color: var(--white-color);
-    box-shadow: 0 0 8px rgba(168, 170, 172, 0.5);
-    color: var(--text-dark);
 }
 
 @media (min-width: 769px) {

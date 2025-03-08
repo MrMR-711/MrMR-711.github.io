@@ -58,6 +58,8 @@ buttondownload.addEventListener('mouseleave', () => {
 
 const backToTopButton = document.getElementById("backToTop");
 
+backToTopButton.style.display = "none";
+
 window.onscroll = function () {
     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
         backToTopButton.style.display = "block";
@@ -94,7 +96,7 @@ document.querySelectorAll('.download-btn, .web-btn, .footer-links a, .contributo
         btn.classList.add('active');
 
         setTimeout(() => {
-            btn.classList.add('noactive');
+            btn.classList.remove('active');
         }, 500);
     });
 });

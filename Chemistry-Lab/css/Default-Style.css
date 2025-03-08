@@ -199,11 +199,11 @@ a:focus,
     display: flex;
     gap: 2.5rem;
     align-items: center;
-    margin-left: 24rem;
+    margin-left: 16rem;
 }
 
 .nav-links a {
-    font-family: 'candarab', sans-serif;
+    font-family: candarab, sans-serif;
     font-weight: bold;
     font-size: 1.4rem;
     position: relative;
@@ -417,10 +417,6 @@ a:focus,
     color: var(--primary-color);
 }
 
-.contributor-links a.noactive {
-    color: var(--text-light);
-}
-
 @media (min-width: 769px) {
 
     .contributor-links a:hover {
@@ -485,10 +481,6 @@ a:focus,
     color: var(--primary-color);
 }
 
-.footer-links a.noactive {
-    color: var(--text-light);
-}
-
 @media (min-width: 769px) {
 
     .footer-links a:hover {
@@ -542,6 +534,45 @@ a:focus,
     background-color: #285ae6;
     transform: scale(1.1);
 }
+
+@media (max-width: 1200px) {
+    .nav-container {
+        padding: 1rem 1.5rem;
+    }
+
+    .nav-links {
+        margin-left: 7rem;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
+
+    .nav-links a {
+        font-size: 1.3rem;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .nav-container {
+        padding: 0.8rem 1rem;
+    }
+
+    .nav-links {
+        margin-left: 0;
+        gap: 2rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+}
+
 
 @media (max-width: 768px) {
     .nav-links {
@@ -820,7 +851,7 @@ a:focus,
     transition: var(--transition);
     gap: 0.8rem;
     background-color: var(--white-color);
-    color: var(--text-dark);
+    color: var(--primary-color);
     box-shadow: 0 0 8px rgba(168, 170, 172, 0.5);
 }
 
@@ -836,7 +867,7 @@ a:focus,
     transition: var(--transition);
     gap: 0.8rem;
     background-color: var(--white-color);
-    color: var(--text-dark);
+    color: var(--primary-color);
     box-shadow: 0 0 8px rgba(168, 170, 172, 0.5);
 }
 
@@ -846,14 +877,6 @@ a:focus,
     background-color: var(--accent-color);
     box-shadow: 0 0 12px rgba(0, 77, 230, 0.8);
     color: var(--white-color);
-}
-
-.download-btn.noactive,
-.web-btn.noactive {
-    transform: scale(1);
-    background-color: var(--white-color);
-    box-shadow: 0 0 8px rgba(168, 170, 172, 0.5);
-    color: var(--text-dark);
 }
 
 @media (min-width: 769px) {
