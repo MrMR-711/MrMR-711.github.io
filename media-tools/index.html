@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Tools</title>
+	<link rel="icon" href="icon.png" type="image/png">
+	<link type="text/css" rel="stylesheet" href="css/En-index-style.css">
+	<link type="text/css" rel="stylesheet" href="css/font.css">
+</head>
+<body>
+    <div class="header-container">
+        <div class="logo">
+            <picture>
+            <source srcset="css/assets/icon.webp" type="image/webp">
+            <source srcset="css/assets/icon.png" type="image/png">
+            <img src="css/assets/icon.png" alt="Logo">
+            </picture>
+            Media Tools
+        </div>
+    
+        <nav>
+            <div class="nav-background"></div>
+            <div class="nav-border"></div>
+        
+            <button class="menu-btn" onclick="toggleMenu()">
+                <span></span>
+           </button>
+        
+            <div class="links">
+                <a href="about">About</a>
+                <a href="https://github.com/MrMR-711">My Github</a>
+                <a href="https://mrmr-711.github.io/Media-Tools">Main</a>
+                <a href="https://mrmr-711.github.io/">Home</a>
+            
+                <div class="language-selector">
+                    <select id="language-selector">
+                        <option value="en">En</option>
+                        <option value="fa">Fa</option>
+                    </select>
+                    </div>
+            </div>
+        </nav>
+    </div>
+    <section class="hero">
+        <h1>All-in-One Media Conversion and Tools</h1>
+        <p>Seamless media conversion and tools for you with Media Tools</p>
+		<h2>Version 1.0.0 Realised!</h2>
+        <div class="buttons">
+            <a href="#">Download Latest
+            <picture>
+                <source srcset="css/assets/download-logo.webp" type="image/webp">
+                <source srcset="css/assets/download-logo.png" type="image/png">
+                <img src="css/assets/download-logo.png" alt="Icon" class="download-logo">
+            </picture>
+            </a>
+            <a href="#">Project Github Page
+            <picture>
+                <source srcset="css/assets/git-logo.webp" type="image/webp">
+                <source srcset="css/assets/git-logo.png" type="image/png">
+                <img src="css/assets/git-logo.png" alt="Icon" class="git-logo">
+            </picture>
+            </a>
+        </div>
+    </section>
+    <div class="spacer"></div>
+    <footer id="contact">
+	    <p><a href="mailto: mohammad117811@gmail.com" class="foot-item-email"></a></p>
+	    <p><a href="https://t.me/MrMR_711" class="foot-item-telegram"></a></p>
+        <p>All rights reserved for</p>
+		<p><a href="https://github.com/MrMR-711">MrMR-711</a></p>
+		<p>.</p>
+    </footer>
+	
+    <script>
+	   function toggleMenu() {
+  	     const menuButton = document.querySelector('.menu-btn');
+   	    const links = document.querySelector('.links');
+
+  	     menuButton.classList.toggle('active');
+  	     links.classList.toggle('active');
+
+ 	      if (links.classList.contains('active')) {
+     	      document.addEventListener('click', closeMenuOnClickOutside);
+  	     } else {
+   	        document.removeEventListener('click', closeMenuOnClickOutside);
+ 	      }
+	   }
+
+	   function closeMenuOnClickOutside(event) {
+ 	      const links = document.querySelector('.links');
+ 	      const menuButton = document.querySelector('.menu-btn');
+
+ 	      if (!links.contains(event.target) && !menuButton.contains(event.target)) {
+   	        links.classList.remove('active');
+   	        menuButton.classList.remove('active');
+   	        document.removeEventListener('click', closeMenuOnClickOutside);
+ 	      }
+	   }
+	   
+	   document.getElementById('language-selector').addEventListener('change', function() {
+            var selectedValue = this.value;
+            if (selectedValue === 'en') {
+                window.location.href = '../../Media-Tools/'; // آدرس صفحه انگلیسی
+            } else if (selectedValue === 'fa') {
+                window.location.href = '../../Media-Tools/Fa'; // آدرس صفحه فارسی
+            }
+       });
+    </script>
+	
+</body>
+</html>

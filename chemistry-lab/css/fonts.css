@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'candarab';
+    src: url('assets/fonts/candarab.woff2') format('woff2'),
+    font-weight: bold;
+    font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+    font-family: 'Estedad-MDarvishi';
+    src: url('assets/fonts/Estedad-Mad.woff2') format('woff2'),
+    font-weight: bold;
+    font-style: normal;
+	font-display: fallback;
+}

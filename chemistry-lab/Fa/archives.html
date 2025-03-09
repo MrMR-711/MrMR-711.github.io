@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آزمایشگاه شیمی - آرشیو</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/fonts.css">
+    <link rel="icon" href="../icon.png" type="image/png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            font-family: Vazirmatn, sans-serif;
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background-color: var(--light-background);
+            direction: rtl;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
+            font-family: Estedad-MDarvishi, sans-serif;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        p,
+        a,
+        .nav-links a,
+        .footer-links a,
+        .feature-card p,
+        .testimonial-text,
+        .price-features li {
+            color: var(--text-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover,
+        a:focus,
+        .logo:hover,
+        .logo:focus,
+        .mobile-menu:hover,
+        .mobile-menu:focus {
+            color: var(--accent-color);
+            outline: none;
+            text-decoration: none;
+        }
+
+        :root {
+            --primary-color: #1141ec;
+            --accent-color: #154ce4;
+            --light-background: #f0f2f5;
+            --white-color: #ffffff;
+            --white-darker: #fcfcfc;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --background-card: #f8f9fa;
+            --border-color: #e0e0e0;
+            --gradient: linear-gradient(135deg, #1141ec 0%, #154ce4 100%);
+            --transition: all 0.35s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+            --menu-transition: all 3s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .header {
+            background: var(--white-color);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            direction: ltr;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
+        }
+
+        .logo a {
+            display: inline;
+        }
+
+        .logo img {
+            width: 200px;
+            height: 50px;
+            display: inline;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: transparent;
+            color: var(--text-dark);
+            border: none;
+            font-size: 1.7rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu .close-icon {
+            display: none;
+        }
+
+        .mobile-menu.active .open-icon {
+            display: none;
+        }
+
+        .mobile-menu.active .close-icon {
+            display: block;
+        }
+
+        .mobile-menu .icon-bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+                opacity 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        }
+
+        .mobile-menu.active .icon-bar {
+            background-color: var(--primary-color);
+        }
+
+        .mobile-menu.active .icon-bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .mobile-menu.active .icon-bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active .icon-bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .language-selector select {
+            font-family: 'candarab', sans-serif;
+            font-weight: bold;
+            font-size: 1.4rem;
+            padding: 8px 60px 8px 10px;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
+            background: rgba(27, 32, 41, 0);
+            color: var(--text-dark);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 5'%3E%3Cpath fill='%230f172a' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: calc(100% - 20px) center;
+            background-size: 10px;
+            margin-right: -5rem;
+        }
+
+        .language-selector select:focus {
+            outline: 1px solid var(--primary-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.5);
+        }
+
+        .language-selector select option {
+            background: #3b4252;
+            color: #d8dee9;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+
+        .language-selector select option:hover {
+            background: #5e81ac;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links> :last-child {
+            margin-left: 1rem;
+        }
+
+        .nav-links a {
+            font-family: Estedad-MDarvishi, sans-serif;
+            font-weight: bold;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            display: inline-block;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: var(--primary-color);
+            transition: width 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a:focus::after {
+            width: 100%;
+        }
+
+        .hero {
+            padding: 10rem 2rem 6rem;
+            background-color: var(--light-background);
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            perspective: 1000px;
+            padding-top: calc(10rem + 60px);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+        }
+
+        .hero-text {
+            animation: slideInLeft 1.1s cubic-bezier(0.65, 0.05, 0.36, 1);
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1.1s 0.7s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+
+        .features {
+            padding: 7rem 2rem;
+            background-color: var(--light-background);
+            animation: fadeIn 1.1s ease-out;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1.1s 0.3s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.8;
+        }
+
+        /* Android Versions List Styles */
+        .android-versions-list {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            justify-items: center;
+            direction: ltr;
+            opacity: 0;
+            animation: fadeInUp 1.1s 0.7s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+        }
+
+        .version-item {
+            background-color: var(--white-color);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .version-details {
+            flex-grow: 1;
+        }
+
+        .version-name {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .version-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0.3rem;
+            transition: var(--transition);
+            gap: 0.8rem;
+            background-color: var(--white-darker);
+            color: var(--primary-color);
+            box-shadow: 0 2px 12px rgba(70, 70, 70, 0.4);
+            font-family: Vazirmatn, sans-serif;
+            font-size: large;
+        }
+
+
+        .download-btn.active,
+        .web-btn.active {
+            transform: scale(1.08);
+            background-color: var(--accent-color);
+            box-shadow: 0 0 12px rgba(0, 77, 230, 0.8);
+            color: var(--white-color);
+        }
+
+        @media (min-width: 769px) {
+
+            .download-btn:hover,
+            .web-btn:hover {
+                transform: scale(1.08);
+                background-color: var(--accent-color);
+                box-shadow: 0 0 12px rgba(0, 77, 230, 0.8);
+                color: var(--white-color);
+            }
+        }
+
+        .version-download-btn {
+            @extend .download-btn;
+            /* Reuse download button styles */
+            margin-left: 20px;
+        }
+
+        .footer {
+            padding: 1rem 2rem;
+            background-color: var(--white-color);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-dark);
+            animation: fadeIn 1.1s ease-out;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 1.3s 0.5s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+        }
+
+        .footer-section a {
+            display: inline;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-family: Vazirmatn, sans-serif;
+            color: var(--text-light);
+            opacity: 0.7;
+            padding: 0.5rem 0;
+            display: inline;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a.active {
+            color: var(--primary-color);
+        }
+
+        @media (min-width: 769px) {
+
+            .footer-links a:hover {
+                color: var(--primary-color);
+            }
+        }
+
+        .p-small {
+            color: #f1f1f8;
+            font: 400 0.75rem/1.25rem "Open Sans", sans-serif;
+        }
+
+        .copyright {
+            padding-top: 5rem;
+            padding-bottom: 0.5rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 1.1s 0.7s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+        }
+
+        .copyright .p-small {
+            font-family: Vazirmatn, sans-serif;
+            color: var(--text-light);
+            opacity: 0.6;
+        }
+
+        .copyright .p-small a {
+            text-decoration: underline;
+        }
+
+        #backToTop {
+            display: inline;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 25%;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        #backToTop:hover {
+            background-color: #285ae6;
+            transform: scale(1);
+        }
+
+        #backToTop.no-hover:hover {
+            background-color: #285ae6;
+            transform: scale(1.1);
+        }
+
+        /* Reusing media queries and animations from the original CSS - No changes needed for responsiveness */
+        @media (max-width: 1200px) {
+            .language-selector select {
+                margin-right: 0rem;
+            }
+
+
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links> :last-child {
+                margin-left: 1rem;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+            }
+        }
+
+
+        @media (max-width: 992px) {
+            .language-selector select {
+                margin-right: 0rem;
+            }
+
+            .nav-container {
+                padding: 0.8rem 1rem;
+            }
+
+            .nav-links {
+                gap: 2rem;
+            }
+
+            .nav-links> :last-child {
+                margin-left: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white-color);
+                flex-direction: column;
+                padding: 0.5rem;
+                text-align: center;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                z-index: -1;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-30px);
+                max-height: 0;
+                overflow: hidden;
+                transition:
+                    transform 0.5s ease-out,
+                    opacity 0.3s ease-out,
+                    visibility 0.3s ease-out,
+                    max-height 0.5s ease-out;
+                margin-left: 0;
+            }
+
+            .nav-links.active {
+                opacity: 1;
+                visibility: visible;
+                margin-top: -0.2rem;
+                transform: translateY(0);
+                max-height: 500px;
+                border-top: var(--white-color)
+            }
+
+            .language-selector select {
+                margin-left: 0rem;
+                margin-bottom: 20px;
+            }
+
+            .nav-links a {
+                font-size: 1.3rem;
+                color: var(--text-dark);
+                border-bottom: 1px solid var(--border-color);
+                display: block;
+                opacity: 0.9;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            .nav-links a:last-child {
+                margin-bottom: 1rem;
+            }
+
+            .nav-links.active a {
+                opacity: 1;
+                transition-delay: 0.4s;
+            }
+
+
+            .mobile-menu {
+                display: block;
+                color: var(--text-dark);
+                transition: color 0.3s ease;
+
+            }
+
+            .logo img {
+                margin-top: 0.4rem;
+            }
+
+            .nav-container {
+                padding: 0.8rem 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .mobile-menu {
+                align-self: flex-end;
+                margin-top: -2.8rem;
+            }
+
+            .hero {
+                padding: 8rem 1.5rem 4rem;
+                min-height: 100vh;
+                padding-top: calc(10rem + 60px);
+            }
+
+            .hero-content {
+                max-width: 100%;
+                margin: 0 auto;
+                margin-top: -20rem;
+                display: block;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.4;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .hero-image {
+                display: flex;
+            }
+
+            .version-item {
+                width: 21rem;
+                background-color: var(--white-color);
+                border: 1px solid var(--border-color);
+                border-radius: 0.5rem;
+                padding: 15px;
+                margin-bottom: 15px;
+                box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .version-details {
+                flex-grow: 1;
+            }
+
+            .version-name {
+                font-size: 1.4rem;
+                color: var(--text-dark);
+                margin-bottom: 5px;
+            }
+
+            .version-date {
+                font-size: 0.8rem;
+                color: var(--text-light);
+                opacity: 0.8;
+            }
+
+            .download-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.8rem 1.5rem;
+                font-weight: 600;
+                text-decoration: none;
+                border-radius: 0.3rem;
+                transition: var(--transition);
+                gap: 0.8rem;
+                background-color: var(--white-darker);
+                color: var(--primary-color);
+                box-shadow: 0 2px 12px rgba(70, 70, 70, 0.4);
+            }
+
+            .version-download-btn {
+                @extend .download-btn;
+                /* Reuse download button styles */
+                margin-left: 20px;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+                text-align: center;
+            }
+
+            .section-subtitle {
+                text-align: center;
+            }
+
+            .features,
+            .testimonials,
+            .footer {
+                padding: 3rem 1.5rem;
+            }
+
+            .features-grid,
+            .testimonial-grid,
+            .footer-content {
+                gap: 2rem;
+            }
+
+            .contributor-card {
+                padding: 40px;
+                width: 350px;
+            }
+
+            .contributor-links {
+                margin-top: 50px;
+            }
+
+            .contributor-links a {
+                font-size: 0.9rem;
+            }
+
+            .contributor-card h4 {
+                font-size: 1.5rem;
+            }
+
+            .contributor-card p {
+                font-size: 1rem;
+            }
+
+            .footer {
+                padding: 0 2rem;
+            }
+
+            #backToTop {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cardSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cardSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-decor {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--gradient);
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0.08;
+            z-index: 0;
+            animation: float 12s infinite alternate ease-in-out;
+        }
+
+        .decor-1 {
+            top: -250px;
+            right: -250px;
+        }
+
+        .decor-2 {
+            bottom: -300px;
+            left: -300px;
+        }
+
+        .feature-icon i,
+        .price-features li i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .hero-image img {
+            border-radius: 0.5rem;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="https://MrMR-711.github.io/Chemistry-Lab" class="logo">
+                <img src="../css/assets/logo.png" alt="logo">
+            </a>
+            <button class="mobile-menu" aria-label="Toggle Navigation" id="mobile-menu-btn">
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+            </button>
+            <div class="nav-links" id="nav-links-menu">
+                <a href="https://MrMR-711.github.io">خانه</a>
+                <a href="https://MrMR-711.github.io/Chemistry-Lab/Fa">صفحه اصلی</a>
+                <a href="https://MrMR-711.github.io/Chemistry-Lab/Fa#features">ویژگی ها</a>
+                <a href="https://MrMR-711.github.io/Chemistry-Lab/Fa#contributors">برنامه نویسان</a>
+                <a href="#Explore-footer">کاوش</a>
+                <div class="language-selector">
+                    <select id="language-selector">
+                        <option value="fa">Fa</option>
+                        <option value="en">En</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <section class="hero">
+            <div class="hero-decor decor-1"></div>
+            <div class="hero-decor decor-2"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">آرشیو نسخه های اندروید</h1>
+                    <p class="hero-subtitle">
+                        نسخه های قبلی برای اندروید:
+                    </p>
+                </div>
+                <div class="android-versions-list">
+
+                    <div class="version-item">
+                        <div class="version-details">
+                            <h3 class="version-name">نسخه 1.0.0</h3>
+                            <p class="version-date">March 1, 2025 :تاریخ انتشار</p>
+                        </div>
+                        <a id="button-download" href="../Chemist-Lab-V1.0.0.apk"
+                            class="download-btn version-download-btn">
+                            <i class="fa fa-download"></i> دانلود
+                        </a>
+                    </div>
+                </div>
+        </section>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="https://MrMR-711.github.io/Chemistry-Lab" class="logo"
+                    style="display: inline; margin-bottom: 1.2rem; color: var(--text-dark);">
+                    <img src="../css/assets/logo.png" alt="logo">
+                </a>
+                <p style="opacity: 0.7; font-size: 0.9rem;">اپلیکیشن متن‌باز برای تحقیقات شیمیایی
+                </p>
+            </div>
+            <div id="Explore-footer" class="footer-section">
+                <h4>کاوش</h4>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/MrMR-711/Web-Chemistry-Lab"><i class="fa-brands fa-github"></i>
+                            صفحه گیتهاب پروژه</a></li>
+                    <li><a href="https://t.me/ChemistLabBot"><i class="fa-solid fa-robot"></i> مینی اپ تلگرام</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="p-small">© حق کپی رایت صفحه رسمی آزمایشگاه شیمی متعلق به
+                            <a href="https://github.com/MrMR-711/">MrMR-711</a>
+                        </p>
+                    </div> <!-- end of col -->
+                </div> <!-- enf of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of copyright -->
+        <!-- end of copyright -->
+    </footer>
+    <button id="backToTop" title="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('mobile-menu-btn'); // Updated selector using ID
+            const navLinks = document.getElementById('nav-links-menu'); // Updated selector using ID
+
+            if (!menuToggle || !navLinks) {
+                console.error("Mobile menu button or nav links menu not found!");
+                return;
+            }
+
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active'); // Keep toggling active class for CSS styles (opacity, visibility, transform)
+
+                if (navLinks.classList.contains('active')) {
+                    // Open the menu (shutter slide down)
+                    navLinks.style.maxHeight = navLinks.scrollHeight + "px"; // Animate to content height using JS
+                } else {
+                    // Close the menu (shutter slide up)
+                    navLinks.style.maxHeight = null; // Animate back to 0 (CSS default) using JS
+                }
+            });
+
+            document.addEventListener('click', (event) => {
+                const isClickInsideMenu = navLinks.contains(event.target);
+                const isClickOnMenuButton = menuToggle.contains(event.target);
+                const isMenuActive = navLinks.classList.contains('active');
+
+                if (isMenuActive && !isClickInsideMenu && !isClickOnMenuButton) {
+                    navLinks.classList.remove('active'); // Remove active class for CSS styles
+                    menuToggle.classList.remove('active'); // Also remove active class from mobile-menu
+
+                    // Close the menu with shutter animation (important to mirror the button click close)
+                    navLinks.style.maxHeight = null; // Animate back to 0 (CSS default) using JS
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    navLinks.classList.remove('active'); // Remove active class for CSS styles
+                    menuToggle.classList.remove('active'); // Also remove active class from mobile-menu
+
+                    // Close the menu with shutter animation (important to mirror button/click-outside close)
+                    navLinks.style.maxHeight = null; // Animate back to 0 (CSS default) using JS
+                }
+            });
+        });
+
+        const buttondownload = document.getElementById('button-download');
+        const title = document.getElementById('title');
+
+        buttondownload.addEventListener('mouseenter', () => {
+            title.style.fontVariationSettings = "'DSTY' 1";
+        });
+
+        buttondownload.addEventListener('mouseleave', () => {
+            title.style.fontVariationSettings = "'DSTY' 2";
+        });
+
+        const backToTopButton = document.getElementById("backToTop");
+
+        backToTopButton.style.display = "none";
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        backToTopButton.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+
+            backToTopButton.classList.add("no-hover");
+
+            setTimeout(() => {
+                backToTopButton.classList.remove("no-hover");
+            }, 300);
+        });
+
+        document.querySelectorAll(".download-btn, .web-btn, .footer-links a").forEach(icon => {
+            icon.addEventListener("click", event => {
+                event.preventDefault();
+                const targetLink = icon.getAttribute("href");
+
+                setTimeout(() => {
+                    if (targetLink) {
+                        window.location.href = targetLink;
+                    }
+                }, 700);
+            });
+        });
+
+        document.querySelectorAll('.download-btn, .web-btn, .footer-links a').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.add('active');
+
+                setTimeout(() => {
+                    btn.classList.remove('active');
+                }, 500);
+            });
+        });
+
+        document.getElementById('language-selector').addEventListener('change', function () {
+            var selectedValue = this.value;
+            localStorage.setItem('language', selectedValue);
+            if (selectedValue === 'en') {
+                window.location.href = '../archives';
+            } else if (selectedValue === 'fa') {
+                window.location.href = './archives';
+            }
+        });
+    </script>
+</body>
+
+</html>
