@@ -78,7 +78,7 @@ backToTopButton.addEventListener("click", function () {
     }, 300);
 });
 
-document.querySelectorAll(".download-btn, .web-btn, .footer-links a, .contributor-links a").forEach(icon => {
+document.querySelectorAll(".download-btn, .web-btn, .footer-links a, .contributor-links a, .myket").forEach(icon => {
     icon.addEventListener("click", event => {
         event.preventDefault();
         const targetLink = icon.getAttribute("href");
@@ -91,7 +91,7 @@ document.querySelectorAll(".download-btn, .web-btn, .footer-links a, .contributo
     });
 });
 
-document.querySelectorAll('.download-btn, .web-btn, .footer-links a, .contributor-links a').forEach(btn => {
+document.querySelectorAll('.download-btn, .web-btn, .footer-links a, .contributor-links a, .myket-img').forEach(btn => {
     btn.addEventListener('click', () => {
         btn.classList.add('active');
 

@@ -557,7 +557,7 @@ a:focus,
     margin-bottom: 1.5rem;
     color: var(--text-dark);
     font-size: 1.2rem;
-    font-family: 'Space Grotesk', monospace;
+    font-family: Estedad-MDarvishi, sans-serif;
 }
 
 .footer-section a {
@@ -585,6 +585,26 @@ a:focus,
 
     .footer-links a:hover {
         color: var(--primary-color);
+    }
+}
+
+.footer-linksd {
+    list-style: none;
+}
+
+.myket-img {
+    width: 10rem;
+    transition: transform 0.3s;
+ }
+ 
+ .myket-img.active {
+     transform: scale(1.08);
+ }
+
+ @media (min-width: 769px) {
+
+    .myket-img:hover {
+        transform: scale(1.08);
     }
 }
 

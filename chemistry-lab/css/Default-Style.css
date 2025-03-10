@@ -555,6 +555,26 @@ a:focus,
     }
 }
 
+.footer-linksd {
+    list-style: none;
+}
+
+.myket-img {
+    width: 10rem;
+    transition: transform 0.3s;
+}
+
+.myket-img.active {
+    transform: scale(1.08);
+}
+
+@media (min-width: 769px) {
+
+    .myket-img:hover {
+        transform: scale(1.08);
+    }
+}
+
 .p-small {
     color: #f1f1f8;
     font: 400 0.75rem/1.25rem "Open Sans", sans-serif;

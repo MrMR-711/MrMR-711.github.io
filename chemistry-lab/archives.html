@@ -458,6 +458,26 @@
             }
         }
 
+        .footer-linksd {
+            list-style: none;
+        }
+
+        .myket-img {
+            width: 10rem;
+            transition: transform 0.3s;
+        }
+
+        .myket-img.active {
+            transform: scale(1.08);
+        }
+
+        @media (min-width: 769px) {
+
+            .myket-img:hover {
+                transform: scale(1.08);
+            }
+        }
+
         .p-small {
             color: #f1f1f8;
             font: 400 0.75rem/1.25rem "Open Sans", sans-serif;
@@ -949,6 +969,14 @@
                     </li>
                 </ul>
             </div>
+            <div id="Explore-footer" class="footer-section">
+                <h4>Download from Stroes</h4>
+                <ul class="footer-linksd">
+                    <li><a href="https://myket.ir/app/com.chemistry.chemistlab" class="myket">
+                            <img src="css/assets/myket-get-en.svg" alt="myket-get" class="myket-img">
+                    </a></li>
+                </ul>
+            </div>
         </div>
         <div class="copyright">
             <div class="container">
@@ -1045,7 +1073,7 @@
             }, 300);
         });
 
-        document.querySelectorAll(".download-btn, .web-btn, .footer-links a").forEach(icon => {
+        document.querySelectorAll(".download-btn, .web-btn, .footer-links a, .myket").forEach(icon => {
             icon.addEventListener("click", event => {
                 event.preventDefault();
                 const targetLink = icon.getAttribute("href");
@@ -1058,7 +1086,7 @@
             });
         });
 
-        document.querySelectorAll('.download-btn, .web-btn, .footer-links a').forEach(btn => {
+        document.querySelectorAll('.download-btn, .web-btn, .footer-links a, .myket-img').forEach(btn => {
             btn.addEventListener('click', () => {
                 btn.classList.add('active');
 
