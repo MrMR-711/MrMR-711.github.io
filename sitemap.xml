@@ -8,47 +8,52 @@
 
 <url>
   <loc>https://mrmr-711.github.io/</loc>
-  <lastmod>2025-03-06T14:11:17+00:00</lastmod>
+  <lastmod>2025-03-09T21:05:51+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://mrmr-711.github.io/about</loc>
-  <lastmod>2025-03-06T14:11:17+00:00</lastmod>
+  <lastmod>2025-03-09T21:05:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://mrmr-711.github.io/Fa/</loc>
-  <lastmod>2025-03-06T14:11:17+00:00</lastmod>
+  <lastmod>2025-03-09T21:05:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://mrmr-711.github.io/Chemistry-Lab/</loc>
-  <lastmod>2025-03-06T14:11:17+00:00</lastmod>
+  <loc>https://mrmr-711.github.io/chemistry-lab/</loc>
+  <lastmod>2025-03-09T21:05:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://mrmr-711.github.io/Fa/about</loc>
-  <lastmod>2025-03-06T14:11:17+00:00</lastmod>
+  <lastmod>2025-03-09T21:05:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mrmr-711.github.io/chemistry-lab/archives</loc>
+  <lastmod>2025-03-09T21:05:51+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://mrmr-711.github.io/Web-Chemistry-Lab/</loc>
-  <lastmod>2025-03-02T17:31:31+00:00</lastmod>
+  <lastmod>2025-03-06T20:10:58+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://mrmr-711.github.io/Web-Chemistry-Lab/Atom-Lab/</loc>
-  <lastmod>2025-03-02T17:31:31+00:00</lastmod>
+  <lastmod>2025-03-06T20:10:58+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://mrmr-711.github.io/Web-Chemistry-Lab/settings</loc>
-  <lastmod>2025-03-02T17:31:31+00:00</lastmod>
+  <lastmod>2025-03-06T20:10:58+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://mrmr-711.github.io/Web-Chemistry-Lab/About</loc>
-  <lastmod>2025-03-02T17:31:31+00:00</lastmod>
+  <lastmod>2025-03-06T20:10:58+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 
