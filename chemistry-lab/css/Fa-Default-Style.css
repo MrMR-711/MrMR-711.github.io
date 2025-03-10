@@ -869,6 +869,10 @@ a:focus,
         padding: 0 2rem;
     }
 
+    .copyright .p-small {
+        font-size: 0.76rem
+    }
+
     #backToTop {
         bottom: 20px;
         right: 20px;
