@@ -610,7 +610,7 @@ footer {
 
 .foot-item-telegram.active {
     transform: scale(1.2);
-    border-radius: 10px;
+    border-radius: 7px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -647,7 +647,7 @@ footer {
 
 .foot-item-email.active {
     transform: scale(1.2);
-    border-radius: 10px;
+    border-radius: 7px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
