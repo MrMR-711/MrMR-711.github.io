@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    -webkit-tap-highlight-color: transparent;
 }
 
 @supports (background-image: url('data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuAAAAAAA')) {
@@ -62,7 +63,7 @@ header h1.title {
 .nav-item-home {
     width: 60px;
     height: 40px;
-    background-image: url(assets/navbar/home-icon.png);
+    background-image: url(assets/navbar/home-icon.svg);
     background-size: cover;
     display: inline-block;
     transition: transform 0.3s, background 0.3s, border-radius 0.3s;
@@ -72,30 +73,26 @@ header h1.title {
     text-decoration: none;
 }
 
-@supports (background-image: url('data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuAAAAAAA')) {
-    .nav-item-home {
-        background-image: url(assets/navbar/home-icon.webp);
-    }
-}
-
-.nav-item-home:hover {
+.nav-item-home.active {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/home-hover.jpg);
+    background: url(assets/navbar/home-hover.svg);
     background-size: cover;
     transform: scale(1.45);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@supports (background-image: url('data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuAAAAAAA')) {
+@media (min-width: 769px) {
     .nav-item-home:hover {
-        background-image: url(assets/navbar/home-hover.webp);
+        width: 60px;
+        height: 40px;
+        background: url(assets/navbar/home-hover.svg);
+        background-size: cover;
+        transform: scale(1.45);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-}
-
-.nav-item-home.hover-active {
-    transform: scale(1.45);
 }
 
 @media (max-width: 767px) {
@@ -107,7 +104,7 @@ header h1.title {
 }
 
 @media (max-width: 767px) {
-    .nav-item-home:hover {
+    .nav-item-home.active {
         width: 55px;
         height: 35px;
         border-radius: 8px;
@@ -117,7 +114,7 @@ header h1.title {
 .nav-item-search {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/search-icon.png);
+    background: url(assets/navbar/search-icon.svg);
     background-size: cover;
     display: inline-block;
     transition: transform 0.3s, background 0.3s, border-radius 0.3s;
@@ -128,33 +125,26 @@ header h1.title {
     text-decoration: none;
 }
 
-@supports (background-image: url('data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuAAAAAAA')) {
-    .nav-item-search {
-        background-image: url(assets/navbar/search-icon.webp);
-    }
-}
-
-.nav-item-search:hover,
-.nav-item-search.hover-active {
+.nav-item-search.active {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/search-hover.jpg);
+    background: url(assets/navbar/search-hover.svg);
     background-size: cover;
     transform: scale(1.45);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@supports (background-image: url('data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuAAAAAAA')) {
-
-    .nav-item-search:hover,
-    .nav-item-search.hover-active {
-        background-image: url(assets/navbar/search-hover.webp);
+@media (min-width: 769px) {
+    .nav-item-search:hover {
+        width: 60px;
+        height: 40px;
+        background: url(assets/navbar/search-hover.svg);
+        background-size: cover;
+        transform: scale(1.45);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-}
-
-.nav-item-search.hover-active {
-    transform: scale(1.45);
 }
 
 @media (max-width: 767px) {
@@ -167,9 +157,7 @@ header h1.title {
 }
 
 @media (max-width: 767px) {
-
-    .nav-item-search:hover,
-    .nav-item-search.hover-active {
+    .nav-item-search.active {
         width: 55px;
         height: 35px;
         border-radius: 8px;
@@ -217,15 +205,13 @@ header h1.title {
     margin-right: 0;
     border: 1px solid #f0f0f0;
     border-radius: 4px;
-    text-align: right;
+    text-align: left;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
 }
 
 .search-input:focus {
     outline: none;
-    /* حذف کادر پیش‌فرض مرورگر */
     border-color: #cccccc;
-    /* رنگ خاکستری برای کادر */
 }
 
 
@@ -262,7 +248,7 @@ header h1.title {
 .nav-item-language {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/language-icon.png);
+    background: url(assets/navbar/language-icon.svg);
     background-size: cover;
     display: inline-block;
     transition: transform 0.3s, background 0.3s, border-radius 0.3s;
@@ -273,33 +259,26 @@ header h1.title {
     text-decoration: none;
 }
 
-@supports (background-image: url('data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuAAAAAAA')) {
-    .nav-item-language {
-        background-image: url(assets/navbar/language-icon.webp);
-    }
-}
-
-.nav-item-language:hover,
-.nav-item-language.hover-active {
+.nav-item-language.active {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/language-hover.png);
+    background: url(assets/navbar/language-hover.svg);
     background-size: cover;
     transform: scale(1.45);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@supports (background-image: url('data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuAAAAAAA')) {
-
-    .nav-item-language:hover,
-    .nav-item-language.hover-active {
-        background-image: url(assets/navbar/language-hover.webp);
+@media (min-width: 769px) {
+    .nav-item-language:hover {
+        width: 60px;
+        height: 40px;
+        background: url(assets/navbar/language-hover.svg);
+        background-size: cover;
+        transform: scale(1.45);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-}
-
-.nav-item-language.hover-active {
-    transform: scale(1.45);
 }
 
 @media (max-width: 767px) {
@@ -312,9 +291,7 @@ header h1.title {
 }
 
 @media (max-width: 767px) {
-
-    .nav-item-language:hover,
-    .nav-item-language.hover-active {
+    .nav-item-language.active {
         width: 55px;
         height: 35px;
         border-radius: 8px;
@@ -396,7 +373,7 @@ header h1.title {
 .nav-item-about {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/about-icon.png);
+    background: url(assets/navbar/about-icon.svg);
     background-size: cover;
     display: inline-block;
     transition: transform 0.3s, background 0.3s, border-radius 0.3s;
@@ -407,30 +384,26 @@ header h1.title {
     text-decoration: none;
 }
 
-@supports (background-image: url('data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuAAAAAAA')) {
-    .nav-item-about {
-        background-image: url(assets/navbar/about-icon.webp);
-    }
-}
-
-.nav-item-about:hover {
+.nav-item-about.active {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/about-hover.png);
+    background: url(assets/navbar/about-hover.svg);
     background-size: cover;
     transform: scale(1.45);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@supports (background-image: url('data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuAAAAAAA')) {
+@media (min-width: 769px) {
     .nav-item-about:hover {
-        background-image: url(assets/navbar/about-hover.webp);
+        width: 60px;
+        height: 40px;
+        background: url(assets/navbar/about-hover.svg);
+        background-size: cover;
+        transform: scale(1.45);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-}
-
-.nav-item-about.hover-active {
-    transform: scale(1.45);
 }
 
 @media (max-width: 767px) {
@@ -495,12 +468,15 @@ p.told {
     direction: rtl;
     text-align-last: right;
     word-spacing: -1px;
-    font-feature-settings: "liga" 1; /* فعالسازی لیگاچرها */
+    font-feature-settings: "liga" 1;
+    /* فعالسازی لیگاچرها */
     text-rendering: optimizeLegibility;
     letter-spacing: 0 !important;
-    -webkit-font-smoothing: antialiased; /* بهبود نمایش فونت در وبکیت */
+    -webkit-font-smoothing: antialiased;
+    /* بهبود نمایش فونت در وبکیت */
     -moz-osx-font-smoothing: grayscale;
-    word-break: normal !important; /* غیرفعال کردن شکستن کلمات */
+    word-break: normal !important;
+    /* غیرفعال کردن شکستن کلمات */
     سhyphens: none !important;
 }
 
@@ -514,7 +490,7 @@ p.told {
     color: #027ddb;
     text-decoration: none;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 .link:hover {
