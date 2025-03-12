@@ -15,6 +15,29 @@ window.addEventListener("load", function () {
     });
 });
 
+document.querySelectorAll(".nav-item-home, .nav-item-about, .foot-item-telegram, .foot-item-email").forEach(icon => {
+    icon.addEventListener("click", event => {
+        event.preventDefault();
+        const targetLink = icon.getAttribute("href");
+
+        setTimeout(() => {
+            if (targetLink) {
+                window.location.href = targetLink;
+            }
+        }, 700);
+    });
+});
+
+document.querySelectorAll('.nav-item-home, .nav-item-about, .foot-item-telegram, .foot-item-email').forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.classList.add('active');
+
+        setTimeout(() => {
+            btn.classList.remove('active');
+        }, 500);
+    });
+});
+
 const searchButton = document.getElementById("search-button");
 const searchBox = document.getElementById("search-box");
 const searchInput = document.querySelector(".search-input");
