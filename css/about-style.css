@@ -63,23 +63,28 @@ header h1.title {
 .nav-item-home {
     width: 60px;
     height: 40px;
-    background-image: url(assets/navbar/home-icon.svg);
     background-size: cover;
     display: inline-block;
+    color: #1078d8;
     transition: transform 0.3s, background 0.3s, border-radius 0.3s;
     margin: 10px;
     border-radius: 10px;
     vertical-align: middle;
     text-decoration: none;
+    text-align: center;
+}
+
+.nav-item-home i {
+    margin-top: 0.3rem;
+    font-size: 2rem;
 }
 
 .nav-item-home.active {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/home-hover.svg);
-    background-size: cover;
+    color: #ffffff;
+    background-color: #1078d8;
     transform: scale(1.45);
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -87,10 +92,9 @@ header h1.title {
     .nav-item-home:hover {
         width: 60px;
         height: 40px;
-        background: url(assets/navbar/home-hover.svg);
-        background-size: cover;
+        color: #ffffff;
+        background-color: #1078d8;
         transform: scale(1.45);
-        border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 }
@@ -100,6 +104,10 @@ header h1.title {
         width: 55px;
         height: 35px;
         border-radius: 8px;
+    }
+    .nav-item-home i {
+        margin-top: 0.3rem;
+        font-size: 1.7rem;
     }
 }
 
@@ -114,7 +122,7 @@ header h1.title {
 .nav-item-search {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/search-icon.svg);
+    color: #1078d8;
     background-size: cover;
     display: inline-block;
     transition: transform 0.3s, background 0.3s, border-radius 0.3s;
@@ -123,26 +131,28 @@ header h1.title {
     border-radius: 10px;
     vertical-align: middle;
     text-decoration: none;
+    text-align: center;
+}
+
+.nav-item-search i {
+    margin-top: 0.3rem;
+    font-size: 2rem;
 }
 
 .nav-item-search.active {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/search-hover.svg);
-    background-size: cover;
+    color: #ffffff;
+    background-color: #1078d8;
     transform: scale(1.45);
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media (min-width: 769px) {
     .nav-item-search:hover {
-        width: 60px;
-        height: 40px;
-        background: url(assets/navbar/search-hover.svg);
-        background-size: cover;
+        color: #ffffff;
+        background-color: #1078d8;
         transform: scale(1.45);
-        border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 }
@@ -153,6 +163,11 @@ header h1.title {
         width: 55px;
         height: 35px;
         border-radius: 8px;
+    }
+
+    .nav-item-search i {
+        margin-top: 0.3rem;
+        font-size: 1.7rem;
     }
 }
 
@@ -205,7 +220,7 @@ header h1.title {
     margin-right: 0;
     border: 1px solid #f0f0f0;
     border-radius: 4px;
-    text-align: left;
+    text-align: right;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -248,7 +263,7 @@ header h1.title {
 .nav-item-language {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/language-icon.svg);
+    color: #1078d8;
     background-size: cover;
     display: inline-block;
     transition: transform 0.3s, background 0.3s, border-radius 0.3s;
@@ -257,15 +272,20 @@ header h1.title {
     border-radius: 10px;
     vertical-align: middle;
     text-decoration: none;
+    text-align: center;
+}
+
+.nav-item-language i {
+    margin-top: 0.25rem;
+    font-size: 2rem;
 }
 
 .nav-item-language.active {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/language-hover.svg);
-    background-size: cover;
+    color: #ffffff;
+    background-color: #1078d8;
     transform: scale(1.45);
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -273,10 +293,9 @@ header h1.title {
     .nav-item-language:hover {
         width: 60px;
         height: 40px;
-        background: url(assets/navbar/language-hover.svg);
-        background-size: cover;
+        color: #ffffff;
+        background-color: #1078d8;
         transform: scale(1.45);
-        border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 }
@@ -287,6 +306,11 @@ header h1.title {
         width: 55px;
         height: 35px;
         border-radius: 8px;
+    }
+
+    .nav-item-language i {
+        margin-top: 0.25rem;
+        font-size: 1.7rem;
     }
 }
 
@@ -363,9 +387,7 @@ header h1.title {
 .language-persian:hover,
 .language-english:hover {
     outline: none;
-    /* حذف کادر پیش‌فرض مرورگر */
     border-color: #cccccc;
-    /* رنگ خاکستری برای کادر */
     text-decoration: none;
     color: #333;
 }
@@ -373,7 +395,7 @@ header h1.title {
 .nav-item-about {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/about-icon.svg);
+    color: #1078d8;
     background-size: cover;
     display: inline-block;
     transition: transform 0.3s, background 0.3s, border-radius 0.3s;
@@ -382,15 +404,20 @@ header h1.title {
     border-radius: 10px;
     vertical-align: middle;
     text-decoration: none;
+    text-align: center;
+}
+
+.nav-item-about i {
+    margin-top: 0.3rem;
+    font-size: 2rem;
 }
 
 .nav-item-about.active {
     width: 60px;
     height: 40px;
-    background: url(assets/navbar/about-hover.svg);
-    background-size: cover;
+    color: #ffffff;
+    background-color: #1078d8;
     transform: scale(1.45);
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -398,10 +425,9 @@ header h1.title {
     .nav-item-about:hover {
         width: 60px;
         height: 40px;
-        background: url(assets/navbar/about-hover.svg);
-        background-size: cover;
+        color: #ffffff;
+        background-color: #1078d8;
         transform: scale(1.45);
-        border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 }
@@ -412,6 +438,11 @@ header h1.title {
         width: 55px;
         height: 35px;
         border-radius: 8px;
+    }
+
+    .nav-item-about i {
+        margin-top: 0.3rem;
+        font-size: 1.7rem;
     }
 }
 

@@ -1,20 +1,3 @@
-window.addEventListener("load", function () {
-    let images = [];
-
-    document.querySelectorAll("*").forEach(el => {
-        let bgImage = window.getComputedStyle(el).backgroundImage;
-        if (bgImage && bgImage.startsWith("url(")) {
-            let url = bgImage.replace(/url\(["']?(.*?)["']?\)/, '$1');
-            images.push(url);
-        }
-    });
-
-    images.forEach(src => {
-        let img = new Image();
-        img.src = src;
-    });
-});
-
 document.querySelectorAll(".nav-item-home, .nav-item-about, .foot-item-telegram, .foot-item-email").forEach(icon => {
     icon.addEventListener("click", event => {
         event.preventDefault();
