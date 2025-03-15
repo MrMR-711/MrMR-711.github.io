@@ -592,6 +592,12 @@ a:focus,
     list-style: none;
 }
 
+.footer-linksdf {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
 .myket-img {
     width: 10rem;
     transition: transform 0.3s;
@@ -867,6 +873,11 @@ a:focus,
 
     .footer {
         padding: 0 2rem;
+    }
+
+    .footer-linksdf {
+        display: grid;
+        gap: 0;
     }
 
     .copyright .p-small {

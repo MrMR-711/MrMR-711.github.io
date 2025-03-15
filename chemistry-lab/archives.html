@@ -10,7 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
-	<link href="../css/fontawesome-pro-6.7.2-web/css/fontawesome.css" rel="stylesheet" />
+    <link href="../css/fontawesome-pro-6.7.2-web/css/fontawesome.css" rel="stylesheet" />
     <link href="../css/fontawesome-pro-6.7.2-web/css/brands.css" rel="stylesheet" />
     <link href="../css/fontawesome-pro-6.7.2-web/css/solid.css" rel="stylesheet" />
     <link href="../css/fontawesome-pro-6.7.2-web/css/sharp-thin.css" rel="stylesheet" />
@@ -467,6 +467,12 @@
             list-style: none;
         }
 
+        .footer-linksdf {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+
         .myket-img {
             width: 10rem;
             transition: transform 0.3s;
@@ -781,6 +787,11 @@
                 padding: 0 2rem;
             }
 
+            .footer-linksdf {
+                display: grid;
+                gap: 0;
+            }
+
             .copyright .p-small {
                 font-size: 0.76rem
             }
@@ -979,16 +990,31 @@
                 </ul>
             </div>
             <div id="Explore-footer" class="footer-section">
-                <h4>Download from Store</h4>
-                <ul class="footer-linksd">
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="https://t.me/Chemist_Iab"><i class="fa-brands fa-telegram"></i> Telegram Channel</a>
+                    </li>
+                    <li><a href="mailto: mohammad117811@gmail.com"><i class="fa-solid fa-envelope"></i> Emial Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="Explore-footer" class="footer-section">
+                <h4>Download</h4>
+                <ul class="footer-linksdf">
                     <li><a href="https://myket.ir/app/com.chemistry.chemistlab" class="myket">
-                            <img src="css/assets/myket-get-en.svg" alt="myket-get" class="myket-img">
+                            <img src="css/assets/download-svgs/myket-get-en.svg" alt="myket-get" class="myket-img">
+                        </a></li>
+                    <li><a href="https://apkpure.com/p/com.chemistry.chemistlab" class="myket">
+                            <img src="css/assets/download-svgs/apkpure-get-en.svg" alt="apkpure-get" class="myket-img">
                         </a></li>
                 </ul>
-                <ul class="footer-linksd">
-                    <li><a href="https://apkpure.com/p/com.chemistry.chemistlab" class="myket">
-                            <img src="css/assets/apkpure-get-en.svg" alt="apkpure-get" class="myket-img">
-                    </a></li>
+                <ul class="footer-linksdf">
+                    <li><a href="https://appteka.store/app/e0fr215849" class="myket">
+                            <img src="css/assets/download-svgs/appteka-get-en.svg" alt="appteka-get" class="myket-img">
+                        </a></li>
+                    <li><a id="button-download" href="./Chemist-Lab-V1.0.0.apk" class="myket">
+                            <img src="css/assets/download-svgs/direct-get-en.svg" alt="direct-get-get" class="myket-img">
+                        </a></li>
                 </ul>
             </div>
         </div>
