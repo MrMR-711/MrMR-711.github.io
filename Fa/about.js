@@ -151,6 +151,13 @@ document.querySelectorAll('#language-box a').forEach(link => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    var savedLang = localStorage.getItem('language');
+    if (savedLang === 'en') {
+        window.location.href = '../about';
+    }
+});
+
 const backToTopButton = document.getElementById("backToTop");
 
 window.onscroll = function () {

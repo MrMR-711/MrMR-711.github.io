@@ -982,6 +982,17 @@
                 </div>
                 <div class="android-versions-list">
 
+                    <!--<div class="version-item">
+                        <div class="version-details">
+                            <h3 class="version-name">نسخه 1.2.0</h3>
+                            <p class="version-date">June 16, 2025 :تاریخ انتشار</p>
+                        </div>
+                        <a id="button-download" href="../Chemist-Lab-V1.2.0-Fa.apk"
+                            class="download-btn version-download-btn">
+                            <i class="fa fa-download"></i> دانلود
+                        </a>
+                    </div>-->
+
                     <div class="version-item">
                         <div class="version-details">
                             <h3 class="version-name">نسخه 1.0.0</h3>
@@ -1176,6 +1187,13 @@
                 window.location.href = '../archives';
             } else if (selectedValue === 'fa') {
                 window.location.href = './archives';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var savedLang = localStorage.getItem('language');
+            if (savedLang === 'en') {
+                window.location.href = '../archives';
             }
         });
     </script>
