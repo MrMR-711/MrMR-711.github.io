@@ -4,108 +4,396 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سایت چندزبانه من</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // ================== سیستم مدیریت زبان ==================
+        const LANGUAGE_KEY = 'user-language';
+        const DEFAULT_LANG = 'en';
+        
+        // تابع تغییر زبان
+        function changeLanguage(lang) {
+            // ذخیره زبان انتخاب شده
+            localStorage.setItem(LANGUAGE_KEY, lang);
+            
+            // به‌روزرسانی محتوا و جهت متن
+            applyTranslations(lang);
+            updateDirection(lang);
+            
+            // به‌روزرسانی URL بدون ریلود صفحه
+            updateURL(lang);
+            
+            // ارسال رویداد برای سایر بخش‌ها
+            const event = new Event('languageChanged');
+            window.dispatchEvent(event);
+        }
+        
+        // به‌روزرسانی URL بر اساس زبان
+        function updateURL(lang) {
+            const newPath = lang === DEFAULT_LANG ? '/' : `/${lang}/`;
+            if (window.location.pathname !== newPath) {
+                window.history.pushState({ lang }, '', newPath);
+            }
+        }
+        
+        // تشخیص زبان اولیه
+        function detectInitialLanguage() {
+            // 1. اولویت: زبان موجود در URL
+            const urlLang = getLanguageFromURL();
+            if (urlLang) return urlLang;
+            
+            // 2. زبان ذخیره شده کاربر
+            const savedLang = localStorage.getItem(LANGUAGE_KEY);
+            if (savedLang) return savedLang;
+            
+            // 3. زبان پیش‌فرض مرورگر
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('fa')) return 'fa';
+            
+            // 4. پیش‌فرض سیستم
+            return DEFAULT_LANG;
+        }
+        
+        // استخراج زبان از URL
+        function getLanguageFromURL() {
+            const path = window.location.pathname;
+            if (path.startsWith('/fa/') || path === '/fa') return 'fa';
+            if (path.startsWith('/en/') || path === '/en') return 'en';
+            return null;
+        }
+        
+        // ================== اجرای اولیه ==================
+        document.addEventListener('DOMContentLoaded', () => {
+            // تشخیص و اعمال زبان اولیه
+            const initialLang = detectInitialLanguage();
+            changeLanguage(initialLang);
+            
+            // مدیریت دکمه بازگشت مرورگر
+            window.addEventListener('popstate', (e) => {
+                const lang = e.state?.lang || detectInitialLanguage();
+                applyTranslations(lang);
+                updateDirection(lang);
+            });
+        });
+        
+        // ================== سیستم ترجمه ==================
+        const translations = {
+            en: {
+                settingsTitle: "Settings",
+                settingsSubtitle: "Alien Cipher Settings • Solo Leveling Interface v1.0",
+                panelTitle: '<i class="fas fa-gear"></i>SETTINGS INTERFACE',
+                languageLabel: "Language",
+                selectButton: "English",
+                englishOption: "English",
+                persianOption: "Persian",
+                themeColorLabel: "Theme Color",
+                checkboxLabel1: "Purple",
+                checkboxLabel2: "Blue",
+                checkboxLabel3: "Green"
+            },
+            fa: {
+                settingsTitle: "تنظیمات",
+                settingsSubtitle: "تنظیمات رمز بیگانگان • رابط کاربری سولو لولینگ نسخه ۱.۰",
+                panelTitle: '<i class="fas fa-gear"></i> رابط تنظیمات',
+                languageLabel: "زبان",
+                selectButton: "فارسی",
+                englishOption: "انگلیسی",
+                persianOption: "فارسی",
+                themeColorLabel: "رنگ تم",
+                checkboxLabel1: "بنفش",
+                checkboxLabel2: "آبی",
+                checkboxLabel3: "سبز"
+            }
+        };
+
+        function applyTranslations(lang) {
+            const texts = translations[lang] || translations[DEFAULT_LANG];
+            
+            // تابع کمکی برای به‌روزرسانی عناصر
+            const updateElement = (selector, content, isHTML = false) => {
+                const element = document.querySelector(selector);
+                if (element) {
+                    if (isHTML) {
+                        element.innerHTML = content;
+                    } else {
+                        element.textContent = content;
+                    }
+                }
+            };
+            
+            // به‌روزرسانی تمام عناصر با ویژگی data-text
+            document.querySelectorAll('[data-text]').forEach(el => {
+                const key = el.getAttribute('data-text');
+                const htmlAttr = el.getAttribute('data-html');
+                
+                if (texts[key]) {
+                    if (htmlAttr === 'true') {
+                        el.innerHTML = texts[key];
+                    } else {
+                        el.textContent = texts[key];
+                    }
+                }
+            });
+        }
+        
+        function updateDirection(lang) {
+            document.documentElement.lang = lang;
+            if (lang === 'fa') {
+                document.body.classList.add('rtl');
+                document.body.dir = 'rtl';
+            } else {
+                document.body.classList.remove('rtl');
+                document.body.dir = 'ltr';
+            }
+        }
+    </script>
     <style>
-        .hidden { display: none; }
-        #lang-switcher { position: fixed; top: 10px; right: 10px; }
+        :root {
+            --primary-color: #6a0dad;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #0f0c29;
+            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+            color: #fff;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+        
+        body.rtl {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .panel {
+            background: rgba(25, 25, 60, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .panel-title {
+            background: rgba(106, 13, 173, 0.8);
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .panel-content {
+            padding: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #d0d0f0;
+        }
+        
+        .custom-select {
+            position: relative;
+            width: 200px;
+        }
+        
+        .select-button {
+            background: rgba(40, 40, 80, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        
+        .select-button:hover {
+            background: rgba(60, 60, 100, 0.9);
+        }
+        
+        .select-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(30, 30, 60, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin-top: 5px;
+            overflow: hidden;
+            z-index: 100;
+            display: none;
+        }
+        
+        .custom-select:hover .select-options {
+            display: block;
+        }
+        
+        .option {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .option:hover {
+            background: rgba(106, 13, 173, 0.6);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        
+        .checkbox-group label:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        #lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        #lang-switcher button {
+            background: rgba(106, 13, 173, 0.7);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        
+        #lang-switcher button:hover {
+            background: rgba(106, 13, 173, 1);
+            transform: translateY(-2px);
+        }
+        
+        /* استایل برای نسخه فارسی */
+        body.rtl .select-button {
+            text-align: right;
+        }
+        
+        body.rtl .custom-select {
+            direction: rtl;
+        }
     </style>
 </head>
 <body>
     <div id="lang-switcher">
-        <button onclick="changeLanguage('fa')">فارسی</button>
         <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('fa')">فارسی</button>
     </div>
 
-    <div id="content-container">
-        <!-- محتوا با جاوااسکریپت پر می‌شود -->
+    <div class="container">
+        <h1 data-text="settingsTitle">Settings</h1>
+        <p data-text="settingsSubtitle">Alien Cipher Settings • Solo Leveling Interface v1.0</p>
+        
+        <div class="panel">
+            <div class="panel-title" data-text="panelTitle" data-html="true">
+                <i class="fas fa-gear"></i> SETTINGS INTERFACE
+            </div>
+            
+            <div class="panel-content">
+                <div class="form-group">
+                    <label data-text="languageLabel">Language</label>
+                    <div class="custom-select">
+                        <button class="select-button" data-text="selectButton">
+                            <span>English</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="select-options">
+                            <div class="option" onclick="changeLanguage('en')" data-text="englishOption">English</div>
+                            <div class="option" onclick="changeLanguage('fa')" data-text="persianOption">Persian</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label data-text="themeColorLabel">Theme Color</label>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="color" value="purple">
+                            <span data-text="checkboxLabel1">Purple</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="color" value="blue">
+                            <span data-text="checkboxLabel2">Blue</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="color" value="green">
+                            <span data-text="checkboxLabel3">Green</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // دیکشنری ترجمه‌ها
-        const translations = {
-            fa: {
-                home: {
-                    title: "خوش آمدید!",
-                    content: "این صفحه اصلی سایت فارسی است.",
-                    about: "درباره ما"
-                },
-                about: {
-                    title: "درباره ما",
-                    content: "این صفحه درباره ما به فارسی است."
-                }
-            },
-            en: {
-                home: {
-                    title: "Welcome!",
-                    content: "This is the English home page.",
-                    about: "About Us"
-                },
-                about: {
-                    title: "About Us",
-                    content: "This is the English about page."
-                }
+        // ================== سیستم همگام‌سازی بین تب‌ها ==================
+        window.addEventListener('storage', (e) => {
+            if (e.key === LANGUAGE_KEY) {
+                const newLang = e.newValue || DEFAULT_LANG;
+                applyTranslations(newLang);
+                updateDirection(newLang);
+                updateURL(newLang);
             }
-        };
-
-        // روت‌های سایت
-        const routes = {
-            '/test/': 'home',
-            '/test/about': 'about'
-        };
-
-        // تابع اصلی تغییر زبان و مسیر
-        function navigate(lang = 'fa', path = '/test/') {
-            // استخراج نام صفحه از مسیر
-            const page = routes[path] || 'home';
-            
-            // تغییر محتوا
-            document.getElementById('content-container').innerHTML = `
-                <h1>${translations[lang][page].title}</h1>
-                <p>${translations[lang][page].content}</p>
-                <a href="/${lang}/about" onclick="handleLink(event)">${translations[lang].home.about}</a>
-            `;
-            
-            // تغییر URL در مرورگر
-            window.history.pushState({ lang, path }, '', `/${lang}${path}`);
-            
-            // ذخیره تنظیمات
-            localStorage.setItem('userLang', lang);
-            localStorage.setItem('lastPath', path);
-        }
-
-        // مدیریت کلیک روی لینک‌ها
-        function handleLink(event) {
-            event.preventDefault();
-            const path = new URL(event.target.href).pathname;
-            const lang = path.split('/')[1];
-            navigate(lang, path.replace(`/${lang}`, ''));
-        }
-
-        // تغییر زبان
-        function changeLanguage(newLang) {
-            const currentPath = localStorage.getItem('lastPath') || '/test/';
-            navigate(newLang, currentPath);
-        }
-
-        // راه‌اندازی اولیه
-        window.onload = function() {
-            // تشخیص زبان از URL
-            const pathSegments = window.location.pathname.split('/test/');
-            const langFromURL = pathSegments[1] || 'fa';
-            const pathFromURL = '/' + pathSegments.slice(2).join('/test/') || '/test/';
-            
-            // استفاده از تنظیمات ذخیره شده یا پیش‌فرض
-            const lang = langFromURL || localStorage.getItem('userLang') || 'fa';
-            const path = pathFromURL || localStorage.getItem('lastPath') || '/test/';
-            
-            navigate(lang, path);
-        };
-
-        // مدیریت دکمه بازگشت مرورگر
-        window.onpopstate = function(event) {
-            if (event.state) {
-                navigate(event.state.lang, event.state.path);
-            }
-        };
+        });
+        
+        // ================== مدیریت خطای 404 ==================
+        // این بخش باید در فایل 404.html پیاده‌سازی شود
+        /*
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Redirecting...</title>
+            <script>
+                // انتقال به صفحه اصلی با حفظ مسیر
+                const path = window.location.pathname;
+                window.location.href = '/index.html' + path;
+            </script>
+        </head>
+        <body>
+            <p>Redirecting to main page...</p>
+        </body>
+        </html>
+        */
     </script>
 </body>
 </html>
