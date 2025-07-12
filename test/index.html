@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سایت چندزبانه من</title>
+    <title>سیستم چندزبانه پیشرفته</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         // ================== سیستم مدیریت زبان ==================
@@ -19,27 +19,23 @@
             applyTranslations(lang);
             updateDirection(lang);
             
-            // به‌روزرسانی URL بدون ریلود صفحه
-            updateURL(lang);
-            
-            // ارسال رویداد برای سایر بخش‌ها
-            const event = new Event('languageChanged');
-            window.dispatchEvent(event);
-        }
-        
-        // به‌روزرسانی URL بر اساس زبان
-        function updateURL(lang) {
-            const newPath = lang === DEFAULT_LANG ? '/' : `/${lang}/`;
-            if (window.location.pathname !== newPath) {
-                window.history.pushState({ lang }, '', newPath);
+            // اگر زبان جدید انگلیسی است در همین صفحه بمان
+            if (lang === DEFAULT_LANG) {
+                // تغییر URL به صفحه اصلی بدون رفرش
+                window.history.pushState({}, '', '/');
+                return;
             }
+            
+            // هدایت به صفحه زبان جدید با رفرش
+            window.location.href = `/${lang}/`;
         }
         
         // تشخیص زبان اولیه
         function detectInitialLanguage() {
             // 1. اولویت: زبان موجود در URL
-            const urlLang = getLanguageFromURL();
-            if (urlLang) return urlLang;
+            const path = window.location.pathname;
+            if (path.startsWith('/fa/') || path === '/fa') return 'fa';
+            if (path.startsWith('/en/') || path === '/en') return 'en';
             
             // 2. زبان ذخیره شده کاربر
             const savedLang = localStorage.getItem(LANGUAGE_KEY);
@@ -53,26 +49,19 @@
             return DEFAULT_LANG;
         }
         
-        // استخراج زبان از URL
-        function getLanguageFromURL() {
-            const path = window.location.pathname;
-            if (path.startsWith('/fa/') || path === '/fa') return 'fa';
-            if (path.startsWith('/en/') || path === '/en') return 'en';
-            return null;
-        }
-        
         // ================== اجرای اولیه ==================
         document.addEventListener('DOMContentLoaded', () => {
             // تشخیص و اعمال زبان اولیه
             const initialLang = detectInitialLanguage();
-            changeLanguage(initialLang);
+            applyTranslations(initialLang);
+            updateDirection(initialLang);
             
-            // مدیریت دکمه بازگشت مرورگر
-            window.addEventListener('popstate', (e) => {
-                const lang = e.state?.lang || detectInitialLanguage();
-                applyTranslations(lang);
-                updateDirection(lang);
-            });
+            // اگر زبان URL با زبان تشخیص داده شده همخوانی ندارد
+            const path = window.location.pathname;
+            if ((initialLang === 'fa' && !path.startsWith('/fa')) || 
+                (initialLang === 'en' && path !== '/')) {
+                changeLanguage(initialLang);
+            }
         });
         
         // ================== سیستم ترجمه ==================
@@ -88,7 +77,9 @@
                 themeColorLabel: "Theme Color",
                 checkboxLabel1: "Purple",
                 checkboxLabel2: "Blue",
-                checkboxLabel3: "Green"
+                checkboxLabel3: "Green",
+                saveButton: "Save Settings",
+                footerText: "© 2023 Alien Cipher Technologies"
             },
             fa: {
                 settingsTitle: "تنظیمات",
@@ -101,14 +92,16 @@
                 themeColorLabel: "رنگ تم",
                 checkboxLabel1: "بنفش",
                 checkboxLabel2: "آبی",
-                checkboxLabel3: "سبز"
+                checkboxLabel3: "سبز",
+                saveButton: "ذخیره تنظیمات",
+                footerText: "© 2023 فناوری‌های رمز بیگانگان"
             }
         };
 
         function applyTranslations(lang) {
             const texts = translations[lang] || translations[DEFAULT_LANG];
             
-            // تابع کمکی برای به‌روزرسانی عناصر
+            // به‌روزرسانی عناصر
             const updateElement = (selector, content, isHTML = false) => {
                 const element = document.querySelector(selector);
                 if (element) {
@@ -120,7 +113,7 @@
                 }
             };
             
-            // به‌روزرسانی تمام عناصر با ویژگی data-text
+            // به‌روزرسانی عناصر با ویژگی data-text
             document.querySelectorAll('[data-text]').forEach(el => {
                 const key = el.getAttribute('data-text');
                 const htmlAttr = el.getAttribute('data-html');
@@ -149,17 +142,34 @@
     <style>
         :root {
             --primary-color: #6a0dad;
+            --panel-bg: rgba(25, 25, 60, 0.7);
+            --text-color: #ffffff;
+            --accent-color: #8a2be2;
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #0f0c29;
-            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
-            color: #fff;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: var(--text-color);
             min-height: 100vh;
             transition: all 0.3s ease;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(106, 13, 173, 0.15) 0%, transparent 20%),
+                        radial-gradient(circle at 90% 80%, rgba(0, 100, 200, 0.15) 0%, transparent 20%);
+            z-index: -1;
         }
         
         body.rtl {
@@ -168,32 +178,86 @@
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .app-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #8a2be2, #4b0082);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        
+        .app-subtitle {
+            text-align: center;
+            color: #d0d0f0;
+            font-size: 1.1rem;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            display: flex;
+            gap: 30px;
+            flex: 1;
         }
         
         .panel {
-            background: rgba(25, 25, 60, 0.7);
+            background: var(--panel-bg);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            flex: 1;
         }
         
         .panel-title {
             background: rgba(106, 13, 173, 0.8);
-            padding: 15px 20px;
-            font-size: 1.2rem;
+            padding: 15px 25px;
+            font-size: 1.3rem;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .panel-content {
+            padding: 30px;
+        }
+        
+        .form-section {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #d0d0f0;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        .panel-content {
-            padding: 20px;
+        .section-title i {
+            color: var(--accent-color);
         }
         
         .form-group {
@@ -202,33 +266,37 @@
         
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 500;
             color: #d0d0f0;
+            font-size: 1.05rem;
         }
         
         .custom-select {
             position: relative;
-            width: 200px;
+            width: 250px;
         }
         
         .select-button {
             background: rgba(40, 40, 80, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
             width: 100%;
             text-align: left;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.2s;
+            transition: all 0.3s;
+            font-size: 1.05rem;
         }
         
         .select-button:hover {
             background: rgba(60, 60, 100, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .select-options {
@@ -238,21 +306,31 @@
             width: 100%;
             background: rgba(30, 30, 60, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            margin-top: 5px;
+            border-radius: 10px;
+            margin-top: 8px;
             overflow: hidden;
             z-index: 100;
             display: none;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
         
         .custom-select:hover .select-options {
             display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .option {
-            padding: 10px 15px;
+            padding: 12px 20px;
             cursor: pointer;
             transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .option:hover {
@@ -261,50 +339,142 @@
         
         .checkbox-group {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         
-        .checkbox-group label {
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            background: rgba(40, 40, 80, 0.5);
+            border-radius: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+        
+        .checkbox-item:hover {
+            background: rgba(60, 60, 100, 0.7);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .checkbox-item.active {
+            background: rgba(106, 13, 173, 0.3);
+            border: 1px solid rgba(106, 13, 173, 0.8);
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            display: none;
+        }
+        
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            border: 2px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .checkbox-item.active .checkmark::after {
+            content: "✓";
+            color: white;
+            font-size: 14px;
+        }
+        
+        .color-preview {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        
+        .color-purple { background: #8a2be2; }
+        .color-blue { background: #1e90ff; }
+        .color-green { background: #32cd32; }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.05rem;
             display: flex;
             align-items: center;
             gap: 10px;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 8px;
-            transition: background 0.2s;
         }
         
-        .checkbox-group label:hover {
-            background: rgba(255, 255, 255, 0.05);
+        .btn-primary {
+            background: linear-gradient(90deg, #8a2be2, #4b0082);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 20px 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         #lang-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
+            position: absolute;
+            top: 25px;
+            right: 25px;
             display: flex;
-            gap: 10px;
+            gap: 12px;
             z-index: 1000;
         }
         
-        #lang-switcher button {
+        .lang-btn {
             background: rgba(106, 13, 173, 0.7);
             border: none;
             color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
+            padding: 10px 20px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.2s;
-            font-weight: 500;
+            transition: all 0.3s;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
         }
         
-        #lang-switcher button:hover {
+        .lang-btn:hover {
             background: rgba(106, 13, 173, 1);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(106, 13, 173, 0.4);
         }
         
-        /* استایل برای نسخه فارسی */
+        /* استایل‌های خاص برای نسخه فارسی */
         body.rtl .select-button {
             text-align: right;
         }
@@ -312,88 +482,206 @@
         body.rtl .custom-select {
             direction: rtl;
         }
+        
+        body.rtl .action-buttons {
+            justify-content: flex-start;
+        }
+        
+        body.rtl #lang-switcher {
+            right: auto;
+            left: 25px;
+        }
+        
+        /* انیمیشن‌ها */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* طراحی واکنش‌گرا */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .panel-title {
+                font-size: 1.1rem;
+            }
+            
+            .panel-content {
+                padding: 20px;
+            }
+            
+            .checkbox-group {
+                flex-direction: column;
+            }
+            
+            .app-title {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div id="lang-switcher">
-        <button onclick="changeLanguage('en')">English</button>
-        <button onclick="changeLanguage('fa')">فارسی</button>
+        <button class="lang-btn" onclick="changeLanguage('en')">
+            <i class="fas fa-globe"></i> English
+        </button>
+        <button class="lang-btn" onclick="changeLanguage('fa')">
+            <i class="fas fa-globe"></i> فارسی
+        </button>
     </div>
 
     <div class="container">
-        <h1 data-text="settingsTitle">Settings</h1>
-        <p data-text="settingsSubtitle">Alien Cipher Settings • Solo Leveling Interface v1.0</p>
+        <header>
+            <h1 class="app-title floating" data-text="settingsTitle">Alien Cipher Settings</h1>
+            <p class="app-subtitle" data-text="settingsSubtitle">Alien Cipher Settings • Solo Leveling Interface v1.0</p>
+        </header>
         
-        <div class="panel">
-            <div class="panel-title" data-text="panelTitle" data-html="true">
-                <i class="fas fa-gear"></i> SETTINGS INTERFACE
-            </div>
-            
-            <div class="panel-content">
-                <div class="form-group">
-                    <label data-text="languageLabel">Language</label>
-                    <div class="custom-select">
-                        <button class="select-button" data-text="selectButton">
-                            <span>English</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="select-options">
-                            <div class="option" onclick="changeLanguage('en')" data-text="englishOption">English</div>
-                            <div class="option" onclick="changeLanguage('fa')" data-text="persianOption">Persian</div>
-                        </div>
-                    </div>
+        <div class="main-content">
+            <div class="panel">
+                <div class="panel-title" data-text="panelTitle" data-html="true">
+                    <i class="fas fa-gear"></i> SETTINGS INTERFACE
                 </div>
                 
-                <div class="form-group">
-                    <label data-text="themeColorLabel">Theme Color</label>
-                    <div class="checkbox-group">
-                        <label>
-                            <input type="checkbox" name="color" value="purple">
-                            <span data-text="checkboxLabel1">Purple</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" name="color" value="blue">
-                            <span data-text="checkboxLabel2">Blue</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" name="color" value="green">
-                            <span data-text="checkboxLabel3">Green</span>
-                        </label>
+                <div class="panel-content">
+                    <div class="form-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-language"></i>
+                            <span data-text="languageLabel">Language</span>
+                        </h2>
+                        
+                        <div class="form-group">
+                            <div class="custom-select">
+                                <button class="select-button" data-text="selectButton">
+                                    <span>English</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="select-options">
+                                    <div class="option" onclick="changeLanguage('en')">
+                                        <i class="fas fa-check"></i>
+                                        <span data-text="englishOption">English</span>
+                                    </div>
+                                    <div class="option" onclick="changeLanguage('fa')">
+                                        <i class="fas fa-check"></i>
+                                        <span data-text="persianOption">Persian</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-palette"></i>
+                            <span data-text="themeColorLabel">Theme Color</span>
+                        </h2>
+                        
+                        <div class="checkbox-group">
+                            <label class="checkbox-item active" data-color="purple">
+                                <input type="checkbox" name="color" value="purple" checked>
+                                <div class="checkmark"></div>
+                                <div class="color-preview color-purple"></div>
+                                <span data-text="checkboxLabel1">Purple</span>
+                            </label>
+                            
+                            <label class="checkbox-item" data-color="blue">
+                                <input type="checkbox" name="color" value="blue">
+                                <div class="checkmark"></div>
+                                <div class="color-preview color-blue"></div>
+                                <span data-text="checkboxLabel2">Blue</span>
+                            </label>
+                            
+                            <label class="checkbox-item" data-color="green">
+                                <input type="checkbox" name="color" value="green">
+                                <div class="checkmark"></div>
+                                <div class="color-preview color-green"></div>
+                                <span data-text="checkboxLabel3">Green</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-times"></i>
+                            <span>Cancel</span>
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            <span data-text="saveButton">Save Settings</span>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <footer>
+            <p data-text="footerText">© 2023 Alien Cipher Technologies</p>
+        </footer>
     </div>
 
     <script>
+        // ================== مدیریت رنگ تم ==================
+        document.querySelectorAll('.checkbox-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // حذف حالت فعال از همه
+                document.querySelectorAll('.checkbox-item').forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('input').checked = false;
+                });
+                
+                // فعال کردن مورد انتخاب شده
+                item.classList.add('active');
+                item.querySelector('input').checked = true;
+                
+                // اعمال تغییرات رنگ
+                const color = item.getAttribute('data-color');
+                applyThemeColor(color);
+            });
+        });
+        
+        function applyThemeColor(color) {
+            const root = document.documentElement;
+            
+            switch(color) {
+                case 'purple':
+                    root.style.setProperty('--primary-color', '#8a2be2');
+                    root.style.setProperty('--accent-color', '#8a2be2');
+                    break;
+                case 'blue':
+                    root.style.setProperty('--primary-color', '#1e90ff');
+                    root.style.setProperty('--accent-color', '#1e90ff');
+                    break;
+                case 'green':
+                    root.style.setProperty('--primary-color', '#32cd32');
+                    root.style.setProperty('--accent-color', '#32cd32');
+                    break;
+            }
+        }
+        
+        // ================== مدیریت رویدادها ==================
+        document.addEventListener('click', (e) => {
+            // بستن منوی زبان هنگام کلیک خارج از آن
+            if (!e.target.closest('.custom-select')) {
+                document.querySelectorAll('.select-options').forEach(menu => {
+                    menu.style.display = 'none';
+                });
+            }
+        });
+        
         // ================== سیستم همگام‌سازی بین تب‌ها ==================
         window.addEventListener('storage', (e) => {
             if (e.key === LANGUAGE_KEY) {
                 const newLang = e.newValue || DEFAULT_LANG;
                 applyTranslations(newLang);
                 updateDirection(newLang);
-                updateURL(newLang);
             }
         });
-        
-        // ================== مدیریت خطای 404 ==================
-        // این بخش باید در فایل 404.html پیاده‌سازی شود
-        /*
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Redirecting...</title>
-            <script>
-                // انتقال به صفحه اصلی با حفظ مسیر
-                const path = window.location.pathname;
-                window.location.href = '/index.html' + path;
-            </script>
-        </head>
-        <body>
-            <p>Redirecting to main page...</p>
-        </body>
-        </html>
-        */
     </script>
 </body>
 </html>
