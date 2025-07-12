@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سایت چندزبانه من</title>
+    <style>
+        .hidden { display: none; }
+        #lang-switcher { position: fixed; top: 10px; right: 10px; }
+    </style>
+</head>
+<body>
+    <div id="lang-switcher">
+        <button onclick="changeLanguage('fa')">فارسی</button>
+        <button onclick="changeLanguage('en')">English</button>
+    </div>
+
+    <div id="content-container">
+        <!-- محتوا با جاوااسکریپت پر می‌شود -->
+    </div>
+
+    <script>
+        // دیکشنری ترجمه‌ها
+        const translations = {
+            fa: {
+                home: {
+                    title: "خوش آمدید!",
+                    content: "این صفحه اصلی سایت فارسی است.",
+                    about: "درباره ما"
+                },
+                about: {
+                    title: "درباره ما",
+                    content: "این صفحه درباره ما به فارسی است."
+                }
+            },
+            en: {
+                home: {
+                    title: "Welcome!",
+                    content: "This is the English home page.",
+                    about: "About Us"
+                },
+                about: {
+                    title: "About Us",
+                    content: "This is the English about page."
+                }
+            }
+        };
+
+        // روت‌های سایت
+        const routes = {
+            '/': 'home',
+            '/about': 'about'
+        };
+
+        // تابع اصلی تغییر زبان و مسیر
+        function navigate(lang = 'fa', path = '/') {
+            // استخراج نام صفحه از مسیر
+            const page = routes[path] || 'home';
+            
+            // تغییر محتوا
+            document.getElementById('content-container').innerHTML = `
+                <h1>${translations[lang][page].title}</h1>
+                <p>${translations[lang][page].content}</p>
+                <a href="/${lang}/about" onclick="handleLink(event)">${translations[lang].home.about}</a>
+            `;
+            
+            // تغییر URL در مرورگر
+            window.history.pushState({ lang, path }, '', `/${lang}${path}`);
+            
+            // ذخیره تنظیمات
+            localStorage.setItem('userLang', lang);
+            localStorage.setItem('lastPath', path);
+        }
+
+        // مدیریت کلیک روی لینک‌ها
+        function handleLink(event) {
+            event.preventDefault();
+            const path = new URL(event.target.href).pathname;
+            const lang = path.split('/')[1];
+            navigate(lang, path.replace(`/${lang}`, ''));
+        }
+
+        // تغییر زبان
+        function changeLanguage(newLang) {
+            const currentPath = localStorage.getItem('lastPath') || '/';
+            navigate(newLang, currentPath);
+        }
+
+        // راه‌اندازی اولیه
+        window.onload = function() {
+            // تشخیص زبان از URL
+            const pathSegments = window.location.pathname.split('/');
+            const langFromURL = pathSegments[1] || 'fa';
+            const pathFromURL = '/' + pathSegments.slice(2).join('/') || '/';
+            
+            // استفاده از تنظیمات ذخیره شده یا پیش‌فرض
+            const lang = langFromURL || localStorage.getItem('userLang') || 'fa';
+            const path = pathFromURL || localStorage.getItem('lastPath') || '/';
+            
+            navigate(lang, path);
+        };
+
+        // مدیریت دکمه بازگشت مرورگر
+        window.onpopstate = function(event) {
+            if (event.state) {
+                navigate(event.state.lang, event.state.path);
+            }
+        };
+    </script>
+</body>
+</html>
