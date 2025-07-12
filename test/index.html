@@ -53,7 +53,7 @@
         };
 
         // تابع اصلی تغییر زبان و مسیر
-        function navigate(lang = 'fa', path = '/') {
+        function navigate(lang = 'fa', path = '/test/') {
             // استخراج نام صفحه از مسیر
             const page = routes[path] || 'home';
             
@@ -82,20 +82,20 @@
 
         // تغییر زبان
         function changeLanguage(newLang) {
-            const currentPath = localStorage.getItem('lastPath') || '/';
+            const currentPath = localStorage.getItem('lastPath') || '/test/';
             navigate(newLang, currentPath);
         }
 
         // راه‌اندازی اولیه
         window.onload = function() {
             // تشخیص زبان از URL
-            const pathSegments = window.location.pathname.split('/');
+            const pathSegments = window.location.pathname.split('/test/');
             const langFromURL = pathSegments[1] || 'fa';
-            const pathFromURL = '/' + pathSegments.slice(2).join('/') || '/';
+            const pathFromURL = '/' + pathSegments.slice(2).join('/test/') || '/test/';
             
             // استفاده از تنظیمات ذخیره شده یا پیش‌فرض
             const lang = langFromURL || localStorage.getItem('userLang') || 'fa';
-            const path = pathFromURL || localStorage.getItem('lastPath') || '/';
+            const path = pathFromURL || localStorage.getItem('lastPath') || '/test/';
             
             navigate(lang, path);
         };
